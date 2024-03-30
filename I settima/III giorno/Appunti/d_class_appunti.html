@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imparo css</title>
+    <style>
+        /*questo è un commetno e vige la sintassi css*/
+        h1{
+            color: aqua; text-align: left;
+        }
+        p{
+            font-size: 12px;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- css esterno è il metodo raccomandato
+        mi pemette di collegare il foglio di dtile a tutte le pagine html che voglio formatare
+    rel= relarazione  di style    -->
+</head>
+<body>
+    <h1 style="color: rgba(112, 112, 230, 0.829); text-align: center;">Titolo principale</h1>
+    <h1>Altro titolo 1</h1>
+    <p style="font-size: 14px;">Testo della pagina con <strong style="color: red;">elemento in evidenza</strong></p>
+    <span>Testo nello span</span>
+    <!-- 
+        css in line è una metologia depregata:
+        1. è una buona norma separare contenuto dalla formattazione
+        2. poco razionale intervenire su ogni riga di codice per fare delle modifiche
+        3. peso della pagine aumenta
+        4. compatibilità cross device: canella la possibiltà di usare le media query infatti l'istruzione inline sarà sempre la più prossima
+        5. posizionamento: la keyword cengono "annaquate" in mezzo al codice
+        
+    -->
+    <!--
+        proriata css:
+            1. Priorità a cascata <8dischiarazione più prossime "comandano"su quelle più lontane    
+            2. priorità specifica (l'utia dichiarazine sovrascrive le precedenti)
+                p.{color: blue  }
+                p { color: red} -> questa dichiarazionesovrascrive quella valida
+            3. priorità gerarchica:stile inline (1000 punti)-> id (100 punti) -> classi (10 punti)
+    
+    -->
+    <h1 id="titolo_principale">Gquesto titolo potra essere selezionato via css grazie all'id</h1>
+    <p class="autore"> Federico de Ambrosi</p>
+    <p class="autore blu"> Alessabdro bianco</p>
+    <p class="autore blu maiuscolo"> MArio rossi</p>
+    <p class="Tecnologia">Tecnologia</p>
+
+    <!--
+        id e classi
+        id-> identifica in modo univoco un tag html -> può essere ripetuto solo una volta
+                                                    -> nel css l'id viene richiamto con il simbolo #
+        class-> selezionato più elemnti html        -> possono essere ripetute enne volte 
+                                                    -> nel css la classe vien richiamto con il simbolo .
+    -->
+</body>
+</html>

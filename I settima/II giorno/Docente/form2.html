@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <form method="get| post" action="#"><!-- form è il tag prent nei miei campi form-->
+                        <!--method indica il odo in cui vengano passati i dati-->
+                        <!--Action indica che cosa fa il form-->
+
+   
+    
+        <fieldset><!--serve a racogliere un set di campi for-->
+            <legend>Anagrafica</legend><!-- fornisce una leggenda a un particolre set di campi-->
+            <div style="display: flex;">
+                <div style="margin-left: 10px; margin-right: 10px;">
+                    <label for="usarname"> Nome utente</label> <!-- etichetta : descrivere i campi (serve a miglioare l'accessibilità)--> <br>
+                    <input type="text" name="usarname" id="" placeholder="username">
+                </div>
+                <div style="margin-left: 10px; margin-right: 10px;">
+                    <label for="email">E-mail</label> <br>
+                    <input type="email" name="email" placeholder="e-mail">
+                </div>
+                <div style="margin-left: 10px; margin-right: 10px;">
+                    <label for="password">password</label> <br>
+                    <input type="password" name="email" placeholder="password">
+                </div>
+            </div>
+        
+            <div style="display: flex;">
+                <div style="margin-top: 1vh; margin-left: 10px; margin-right: 10px;">
+                    <label for="Luogodinascita">Luogo di nascita:</label> <br>
+                    <input type="text" name= "Luogodinascia" placeholder="Luogo di nascita">
+                </div >
+                <div style="margin-top: 1vh; margin-left: 10px; margin-right: 10px;">
+                    <label for="data">Inserisci una data:</label> <br>
+                    <input type="date" name="data" placeholder="data">
+                </div>
+                <div style="margin-top: 1vh; margin-left: 10px; margin-right: 10px;">
+                    <label for="anni">Inserisci i tuio anni:</label> <br>
+                    <input type="number" name="anni" placeholder="Anni" min="18" max="50">
+                </div>
+            </div>
+
+            <div style="display: flex;">
+                <div style="margin-top: 1vh; margin-left: 10px; margin-right: 10px;">
+                    <label for="oratio">Orario:</label> <br>
+                    <input type="time" name= "oratio" placeholder="time">
+                </div >
+                <div style="margin-top: 1vh; margin-left: 10px; margin-right: 10px;">
+                    <label for="data">Inserisci una data:</label> <br>
+                    <input type="date" name="data" placeholder="data">
+                </div>
+                <div style="margin-top: 1vh; margin-left: 10px; margin-right: 10px;">
+                    <label for="cv">Inserisci il tuo curricolum:</label> <br>
+                    <input type="file" name="cv" placeholder="curricolum">
+                </div>
+            </div>
+
+                <div style="display: flex;">
+                    <div style="margin-top: 1vh; margin-left: 10px; margin-right: 10px;">
+                        <label for="avanzamento_lavoro">Orario:</label> <br>
+                        <input type="range" name= "range" min="0" max="100" value="10" step="5">
+                    </div >
+                    <div style="margin-top: 1vh; margin-left: 10px; margin-right: 10px;">
+                        <label for="nascosto">Campo nascosto:</label> <br>
+                        <input type="hidden" name="nascosto" >
+                    </div>
+                </div>
+            </div>
+
+            <label for="autorizzo">Autorizzo al trattaento dei miei dati personli:</label>
+            <input type="checkbox" name="autorizzo" checked>
+        </fieldset>
+    <br>
+        <fieldset>
+            <legend>Altri input</legend>
+            <div>
+                <label for="utente">inserisci il nome utente</label>
+                <input type="text" required> 
+        </div> 
+        <br>
+        <div>
+                <label for="utente_premium">passa a premium</label>
+                <input type="text" placeholder="Passa a premium" disabled>
+        </div>
+        <br>
+        <div>
+            <label for="punteggio"> Risuktati votazione</label>
+            <input type="text" name="punteggio" readonly value="7">
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>info ulteriore</legend>
+            <div>
+                <label for="commento">Inserisci il tuo messaggio</label>
+            <textarea name="commento" id="" cols="35" rows="10" placeholder="inserisci il tuo testo..."> </textarea>
+            </div>
+            <div>
+                <label for="provincia"> Scegli la tua provincia</label>
+                <select name="provincia" >
+                    <option value=""></option>
+                    <optgroup label="Lombardia">
+                        <option value="Mi">Milano</option>
+                        <option value="Va">varese</option>
+                        <option value="Co">Como</option>
+                    </optgroup>
+
+                    <optgroup label="Emilia romaglia">
+                        <option value="Bo">Bologna</option>
+                        <option value="Re">Reggio Emilia</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div>
+                <label for="Domanda_1">Che cos'è il tag body</label> <br>
+                <input type="radio" name="Domanda_1" value="0">Risposta 1 <br>
+                <input type="radio" name="Domanda_1" value="0">Risposta 2 <br>
+                <input type="radio" name="Domanda_1" value="1">Risposta 3 <br>
+            </div>
+    </fieldset>
+    <button type="Subimit">Invia il form</button>
+    <button type="reset"> Cancella i dati</button>
+    
+ </form>  
+    
+</body>
+</html>

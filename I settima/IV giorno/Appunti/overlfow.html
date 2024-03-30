@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <style>
+        div.ex1, div.ex2, div.ex3, div.ex4 {  
+        background-color: aquamarine ;
+        width: 110px;
+        height: 110px; 
+        margin: 10px;
+    }
+        div.ex1{overflow: scroll;  }
+
+        div.ex2{ overflow: hidden;  }
+
+        div.ex3{ overflow: auto;}
+
+        div.ex4{ overflow: visible; } 
+
+        /* Word-break*/
+
+        p{
+            width: 120px;
+            border: 1px solid black;
+        }
+
+        .uno { word-break: normal;/**la parola eccede il conenitore*/   }
+        .due{word-break: keep-all;/* la parola va  capo solo ce si sono dei trattini */  }
+        .tre{ word-break: break-all;}/* La parola va a capo sempre*/
+        .quattro{ word-wrap: break-word;}
+
+        /*word- wrap-> 
+                        word-wrap normal ...............................  valore di defoul ce non spezza le parole in accedono
+                        woed-wrap: break-word.............................spezza solo la parola che eccede
+        */ 
+
+        .quattro{ word-wrap: break-word;}
+
+    </style>
+</head>
+<body>
+    <h1>Proprieta Overflow</h1>
+    <h2>Overflow: scroll</h2>
+    <div class="ex1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo tenetur molestias laboriosam inventore repudiandae minima, enim maiores eveniet debitis blanditiis porro doloribus officiis quidem est aspernatur quam exercitationem totam!</div>
+    
+    <h2>Overflow: hidden</h2>
+    <div class="ex2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quaerat itaque id officia sequi minima voluptas vitae ullam provident, delectus magni nemo, nulla ipsa consectetur voluptatem. Modi laudantium maxime natus.</div>
+
+    <h2>Overflow : Auto</h2>
+    <div class="ex3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae doloremque voluptates tempora veritatis! Alias rerum explicabo deleniti fugiat ipsa quo eos accusantium debitis esse illo nulla enim possimus, eligendi labore?</div>
+
+    <h2>Overflow: visible</h2>
+    <div class="ex4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio veniam officiis molestiae at dicta magni voluptatum sint dolore quidem cum officia libero labore facilis numquam deleniti ipsam, veritatis quasi eos?</div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <hr>
+
+    <h1>Word-break</h1>
+    <p class="uno">Precipitevolissimevo è la parola più lunga dell'alfabeto itaino</p>
+
+    <p class="due">Precipitevolissimevo è la parola più lunga dell'alfabeto itaino</p>
+
+    <p class="tre">Precipitevolissimevo è la parola più lunga dell'alfabeto itaino</p>
+
+    <p class="quattro">Precipitevolissimevo è la parola più lunga dell'alfabeto itaino</p>
+
+
+
+
+
+
+
+</body>
+</html>

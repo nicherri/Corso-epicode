@@ -1,0 +1,119 @@
+
+body{
+    margin: 0;
+
+}
+
+/*********************************HEADER*****************************/
+.logo_wrapper{
+    height: 3.5vw;
+    text-align: center;
+    padding: 3px;
+}
+
+#img_logo{
+    height: 100%;
+    padding-bottom: 0.3em;
+}
+
+/************************************MENU**************************************/
+
+nav{
+    background-color: #FDFBF1;
+    height: 2.5em;
+    border-top: 1px solid #FFDC85;
+}
+nav p{
+    text-align: center;
+    padding: 0.8rem;
+    margin: 0;
+    color: #004D4C;
+    font-size: 0.9vw;
+}
+
+nav p strong{
+    text-transform: uppercase;
+}
+
+/**************************************RICETTA della PRIMA FOTO************************************/
+article{
+    width: 700px;
+    margin: 0 auto ;
+}
+
+h1{
+    text-align: center;
+    font-size: 2.5em;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+
+.immagine_foc img{
+    border-radius: 20px;
+    box-shadow: 4px 4px 5px #D5D6D8; 
+}
+
+.immagine_foc p{
+text-align: center;
+color: gray;
+}
+
+.sottitolo_immagine figcaption{
+    margin: 0.5em;
+    text-align: center ; 
+    color: #666;
+}
+
+/***************************************feature in***************************************/
+
+.container_link{
+    border-left:solid 1px #FFDC85 ;
+    margin-bottom: 2vw;
+}
+
+.container_link p{
+    margin: 0;
+    font-size: 1em;
+    padding-left: 0.5em;
+}
+
+#colore_differente{
+    color: #B5460F;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+a{
+    color: #197A7A;
+}
+
+/****************************************ingredienti***************************************/
+
+.separation {
+    padding-left: 0.5em;
+    border-bottom:solid 1px  #C4F3F2;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.lista p{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+li{ padding-top: 0.4em;}
+
+#seconda_lista{
+    margin-top: 2em;
+}
+
+/************************************Method*****************************************/
+
+#dough{
+    font-weight: bold;
+}
+
+footer{
+    width: 700px;
+    margin: 0 auto ;
+}

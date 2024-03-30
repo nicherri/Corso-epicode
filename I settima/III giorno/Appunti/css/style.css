@@ -1,0 +1,22 @@
+/* commento css*/
+/*sintassi -> selettore {propietà: valore; propietà valore}*/
+
+*{ font-style: italic;} /*selettore universale*/
+
+p{font-size: 20px;}/*selettore base*/
+
+span{ font-weight: bold; color: red;}
+
+ol, ul{margin-left: 30px;}
+
+p strong{ font-size: 22px;} /* non tutti gli elementi strong ma solo quelli contenuti in un tag p*/
+
+#titolo_principale {
+    font-size: 60px;
+    color: red;
+    text-decoration:underline;
+}
+
+.autore{color: gray; font-size: 11px;}
+.blu{ color: blue;}
+.maiuscolo{ text-transform: uppercase;}
