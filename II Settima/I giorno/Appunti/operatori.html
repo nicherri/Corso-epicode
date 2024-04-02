@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operatori</title>
+</head>
+<body>
+    <h2> Operatori</h2>
+    <p> Tramite gli operatori posso combinare valori tra loro</p>
+
+    <script>
+
+        //x+1;    // è un'espressione che combina la variabile 1 tramite l'operazione
+                // ottine l'incremento di una unità 
+    </script>
+
+    <p>        Gli operatori deteminano il risultato di un' operazione    </p>
+    <p> Classificazionedegli operatori in base al numero di valori che possono combinare: unari, binari, ternario </p>
+
+    <h2> operatori aritmetici</h2>
+    <p>Operatori binari perchè combinano due valori (numeri) <br>
+        + addizione <br>
+        - sottrazione <br>
+        / divisione  <br>
+        * moltiplicazione <br>
+        % modulo  o resto <br>
+
+        <script>
+            /*
+            9/      // divisione
+            x+10    //addizione
+            3*2     // moltiplicazione
+            // seguono le regole delle precendeze aritmeticche moltiplicazione, divisione, parentesi
+            */
+        </script>
+    </p>
+
+    <h2> operatori unari</h2>
+    <p>Operatori numerici possono essere unari, cioè combinano solamente un valore <br>
+        ++ incremento <br>
+        -- decremento  <br>
+        -negazione -> x= 5 -> -x=-5  <br>
+        se ci sono due valore - è sottrazione, se c'è solo un valore è negazione <br><br>
+
+        -> incremento e degremento le posso apllicare solo alle varibili <br>
+        -> è molto importante la posizione dell'elemento (se a sinistra oppure e destra dell' operando) <br>
+        -> se l'operazione è a sinistra dell' operando viene eseguita prima di valutare l'espressione <br>
+        -> se l'operazione è a destra dell' operando  l'operazione viene eseguita dopo <br>
+        
+        <script>
+            var x =3; 
+            var y = ++x; // a sx -> valuto prima -> x viene iincrementate di 1 e il suo risutato assegnato a y
+                        // x= 4 e y= 4
+            console.log(x, y);
+
+            var x =3; 
+            var y = x++; // a sx -> valuto prima -> x viene iincrementate di 1 e il suo risutato assegnato a y
+                        // x= 4 e y= 3
+            console.log(x, y);            
+        </script>
+    </p>
+
+    <h2> operatori logici </h2>
+    <p>Consento di combinare eprssione booleane [true| false] <br>
+        && -> operatore binazio -> and <br>
+        || -> operatore binario -> o  <br>
+        !  -> operatore unario -> not  <br>
+        se ci sono due valore - è sottrazione, se c'è solo un valore è negazione <br><br>
+       
+        <script>
+            /*
+            5>2 && 3 ! =4   // true
+            !5=== 5         //false 
+
+            =   ->  assegnamento 
+            ==  ->  uguale
+            === -> Stretamente uguale sian nela balore che nel tipo di dato
+                -> esempio 5 e "5" sono uguali non nel tipo di dato -> non sono strettamente uguali
+            !=  -> diverso
+            */
+        </script>
+    </p>
+
+    <h2> operatori ternario </h2>
+    <p>Pemette di combinare tre dati di loro. Restiuisce un valore in base alla valutazione di un' espressione boolenana <br>
+        Sintassi: Condizione? valore1 : Valore2 <br>
+        verifico se la condizione è vera (true| false) -> se è vera restituisce valore1 altrimenti valore2  <br>
+        -negazione -> x= 5 -> -x=-5  <br>
+        se ci sono due valore - è sottrazione, se c'è solo un valore è negazione <br><br>
+
+        -> incremento e degremento le posso apllicare solo alle varibili <br>
+        -> è molto importante la posizione dell'elemento (se a sinistra oppure e destra dell' operando) <br>
+        -> se l'operazione è a sinistra dell' operando viene eseguita prima di valutare l'espressione <br>
+        -> se l'operazione è a destra dell' operando  l'operazione viene eseguita dopo <br>
+        
+        <script>
+            var utenteAbilitato=true;
+            (utenteAbilitato) ? console.log("utente abilitato"): console.log(" utente disibilitato"); 
+            // verisico il valore di utenteabilitato (cioè la condizone )
+            // se è true -> restituisco il primo valore dopo ? ( quello che in situazioni riga 74 era valore)
+            // se è false -> restituisco il secondo valore, quello dopo.           
+        </script>
+    </p>
+
+    <h2> operatori relazionari </h2>
+    <p>Utilizzati  per confrontare dei valori </p>
+      <table>
+        <tr><th>Operatore</th><th>Nome</th></tr>
+        <tr><td>&gt;</td><td>maggiore</td></tr>
+        <tr><td>&lt;</td>minore<td></td></tr>
+        <tr><td>>=</td><td>maggiore o uguale</td></tr>
+        <tr><td><=</td><td> minore o uguale</td></tr>
+        <tr><td>==</td><td>uguale</td></tr>
+        <tr><td>!=</td><td>non uguale</td></tr>
+        <tr><td>===</td><td>strettamente uguale</td></tr>
+        <tr><td>!==</td><td>strettamente diverso</td></tr>
+      </table>
+
+
+
+      <h2> operatori si stringa </h2>
+    <p>Operazione concatenazione (+) crea una nuova stringa come  risualtato della concatenazione di due stringhe  <br>       
+        <script>
+           "piano"+ "forte"; //"pianoforte" 
+           
+           var strumento = "piano";
+           strumento += "forte"; // strumento = pianoforte"
+          
+           //operazione assegnazione
+           let a = 2;
+           let b = 'hello';
+           console.log ((a+=3));        // Addizione-> rissultato atteso ->5
+           console.log ((b+='mondo'));   // Addizione-> rissultato atteso ->hello mondo
+
+           console.log ( typeof 42);        // risultato attteso -> number 
+           console.log ( typeof 'pippo');   // risultato attteso -> string 
+           console.log ( typeof true);      // risultato attteso -> booleassn 
+
+
+
+        </script>
+    </p>
+</body>
+</html>
