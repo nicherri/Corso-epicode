@@ -97,7 +97,7 @@ else {
   console.log(totalShoppingCart);
 }
 
-/* ESERCIZIO 7
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ESERCIZIO 7
   Crea tre variabili, e assegna un valore numerico a ciascuna di esse.
   Utilizzando un blocco condizionale, crea un algoritmo per ordinarle secondo il loro valore, dal più alto al più basso.
   Alla fine mostra il risultato in console.
@@ -136,7 +136,7 @@ else
 }
 
 
-/* ESERCIZIO 8
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ESERCIZIO 8
   Crea un algoritmo per verificare che un valore fornito sia un numero oppure no (suggerimento: cerca su un motore di ricerca "typeof").
 */
 
@@ -149,7 +149,7 @@ if (typeof valore === "number")
   else {
     console.log("Il valore non è un numero.");}
 
-/* ESERCIZIO 9
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ESERCIZIO 9
   Crea un algoritmo per controllare se un numero fornito sia pari o dispari (suggerimento: cerca l'operatore modulo su un motore di ricerca)
 */
 
@@ -162,7 +162,7 @@ if (numero % 2 === 0) {
     console.log(numero + " è un numero dispari.");
 }
 
-/* ESERCIZIO 10
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ESERCIZIO 10
   Modifica la logica del seguente algoritmo in modo che mostri in console il messaggio corretto in ogni circostanza.
   let val = 7
   if (val < 10 ) {
@@ -188,7 +188,7 @@ let val = 7
       console.log("Uguale a 10 o maggiore");
     }
 
-/* ESERCIZIO 11
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ESERCIZIO 11
   Fornito il seguente oggetto, scrivi del codice per aggiungere una proprietà "city", il cui valore sarà "Toronto".
 */
 
@@ -210,7 +210,7 @@ console.log(me)
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 delete me.lastName;
-    console.log(me.lastName) 
+    console.log(me) 
 
 /* ESERCIZIO 13
   Lavorando sempre sull'oggetto precedentemente fornito, scrivi del codice per rimuovere l'ultimo elemento della proprietà "skills".
@@ -218,7 +218,7 @@ delete me.lastName;
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 delete me.skills;
-    console.log(me.skills)
+    console.log(me)
 
 /* ESERCIZIO 14
   Scrivi del codice per creare un array inizialmente vuoto. Riempilo successivamente con i numeri da 1 a 10.
