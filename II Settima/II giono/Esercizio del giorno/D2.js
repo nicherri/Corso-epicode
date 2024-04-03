@@ -225,7 +225,18 @@ delete me.skills;
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-var numeriArray= [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var numeriArray= [ ];
+numeriArray.push(1);
+numeriArray.push(2)
+numeriArray.push(3)
+numeriArray.push(4)
+numeriArray.push(5)
+numeriArray.push(6)
+numeriArray.push(7)
+numeriArray.push(8)
+numeriArray.push(9)
+numeriArray.push(10)
+console.log(numeriArray.length)
 console.log( numeriArray);
 
 /* ESERCIZIO 15
