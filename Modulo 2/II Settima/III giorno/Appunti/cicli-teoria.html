@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cicli o interazione o loop </title>
+</head>
+<body>
+
+    <h1> Cicli o interazione o loop</h1>
+    <p> sono strutture molto comune nel linguaggio, ci permettono di eseguire una serire di istruzioni <b> finchè </b> una deteminata condizione
+         è valida. Perchè  ci sia un ciclo la condizione deve mutare e deve essere ciclicamente mutata <br>
+        quando la condizione non è più vera il codice associato non viene più eseguita (si esce ddal ciclo) <br>
+    Javascript prevede due macro istruzioni per faare delle <b> interazione</b>: <code> while </code> e <code>For</code></p>
+
+    <h2> While </h2>
+    <p><b> Schema sintatto di while</b></p>
+
+    <script> 
+    while (condizione){
+        //istruzioni
+    }
+
+    // finchè la condizione sarà sempre vera finchè non veranno eseguito le istruzioni del blocco di codice
+    // REQUISITO FONDAMENTALE: le istruzione presenti nel blocco di codice devono modificare la condizine
+    // !!! se le istruzioni non modificano la condizione -> non possono scire dal ciclo-> loop infito
+    </script>
+    
+    <h2> Do While</h2>
+    <p> Rispettta awhile che abbimao visto ha una variabile ha una variante: la condiizone viene valutata dopo aver eseguito le istruzione <br>
+        esegue sempre una volta le istruzioni e poi valuto le condizione
+    </p>
+
+    <p> <b> Schema sintattico di do while </b></p>
+
+    <script>
+         do {
+            // blocco di istruzione
+         }
+         while(condizione);
+
+    </script>
+
+    <h2>Ciclo for </h2> 
+    <p>Serve (come <code> While</code>) a eseguire un blocco di istruzione un determiato numero di volte <br>
+    numero di volte che è deteminato da quello che abbiamo chiamto <b> Condizione</b></p>
+
+    <p><b> Schema sintattico di for</b></p>
+
+    <script>
+        for(iniziallizzazine; condizione; modifica){
+            //istruzione 
+        }
+
+        // innizializzzazione è l'istuzione che javascript esegue prima di avviare ul ciclo o loop 
+        // condione è espressione booleana ( trué |false) che viene valutata  prima di eseguire il ciclo 
+        //                                    se e trué il blocco di codice viene eseguita
+        //                                    se è false il blocco di codice non viene eseguito
+        // modifica è l'istruzione che viene eseguita la temine di ciascun ciclo
+        // il ciclo ricomincia dalla valutazione della condizone 
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selezione nel DOM</title>
+</head>
+<body>
+    <h2>Selezinare fl ielemeti del DOM</h2>
+
+   
+    <!-- ---------------------------Selezionalre per id----------------------------------->
+            <h3>getElementById</h3>
+            <p>CI permette di selezionare un sngolo elemento del dom che come id il valore che passiamo</p>
+            <p id="demo"></p>
+            <script>
+                document.getElementById("demo").innerHTML="HEllo word;"
+            </script>
+
+
+     <!-- ---------------------------Selezionalre per classe----------------------------------->
+            <h3>getElementByClassName</h3>
+            <p>CI permette di selezionare tutti elementi a cui è associato una determita classe</p>
+            <div class="example"> Un div con classe " example</div>
+            <div class="example"> Un div con classe " example</div>
+            <p class="example"> Un div con classe " example</p>
+            <p>Uno<span class="example"> con classe " example</span></p>
+
+            <script>
+                let collection =document.getElementsByClassName("example");
+                //selezione solo il primo
+                // collection[0].innerHTML="ciao a tutti;" //selesiono solo il primo 
+                //dentor al parametro eventualemnte posso usare più clasi (in questo caso seleziono  i tag he hanno Tutte le classi che passo)
+                // selezionare tutti 
+                for (let i =0; i< collection.length; i++){
+                    collection[i].style.backgroundColor= "red";
+                }
+            </script>
+
+    
+    <!-- ---------------------------Selezionalre per tag----------------------------------->
+
+            <h3>getElementByTagName</h3>
+            <p>CI permette di selezionare tutti elementi in base al tag</p>
+            <ul>
+                <li>Html</li>
+                <li>Css</li>
+                <li>Javascript</li>
+            </ul>
+            <p id="demo2"> </p>
+            <script>
+                let collectiondue =document.getElementsByTagNameNS( "li");
+                document.getElementById("demo2").innerHTML=collection[1].innerHTML;     //prende il secondo elemtp e leo meto in demo2
+
+                // esiste un selettore globale -> getElementsBytagNAme("*")
+
+            //posso manipar un elemento dirttamente ->       // document.getElementsByTagName("li")[0].innerHTML= "Angolar";
+            // anche qui abbiamo a disposizine un metodo legth per contare quanti elemetni abbiamo selezionato
+            </script>
+
+            <p> creo un paragrafo in <span> cui</span> inserisco <span> alcuni</span> tag <span> span</span></p>
+
+            <script>
+                let collection3 = Document.getElementsByTagName (span);
+                
+                for (let i =0 ; collection3.length; i++){
+                    collection3[i].style.backgroundColor= "green";
+                }
+            </script>
+       
+     
+       <!-- ---------------------------Selezionalre per name----------------------------------->
+            <h3>getElementBy Name</h3>
+            <p>CI permette di selezionare tutti i tag  che hanno un particolare attributo name, (tipicamento si usa nei form)</p>
+            <form>
+                <Input type="text" name="username"></Input>
+            </form>
+            <script>
+                let elelemnti = document.getElementsByName("username");
+            </script>
+
+   
+<!-- ---------------------------query selecto----------------------------------->
+
+            <h2> Query selector e quety selecto all</h2>
+            <p> Hanno un grade comocità accettano come parametro un selettore che viene usato per selezionare gl elementi</p>
+            <p> Esempio  </p>
+            <h4 id="title"> MAnipolo il dom con javascript </h4>
+            <h5 class="titolino"> Chw velo manipolare il dom con javascript</h5>
+            <script>
+                let title= document.querySelector('#tittle');
+                console.log(title);
+
+                let titledue= document.querySelector('.titolino');
+                console.log (titledue);
+                // la grande comodità è che nel paramtero posso usare la sintassi css per i  selettori #d . classi
+                // i selettori sono case sensitive -> title e TITLE SONO DUE COSE DIVERSE
+                // SE CI SONO PIù ELEMENTI CON LO STESSO SELETTORE QUESTO  metodo seleziona SOlo il primo che trova 
+                // per selezioanre più di un elemento devp usre querySelectonAll
+            </script>
+
+            <h3> Query selector all</h3>
+            <p>Javascript DOM Manipulator</p>
+            <p>Javascript DOM Manipulator</p>
+            <p>Javascript DOM Manipulator</p>
+            <script>
+
+                let parafi = document.querySelectorAll ('p');
+                console.log( paragrafi); // nodelist (lista di nodi) con tutti i paragradi
+            </script>
+
+
+
+    
+</body>
+</html>

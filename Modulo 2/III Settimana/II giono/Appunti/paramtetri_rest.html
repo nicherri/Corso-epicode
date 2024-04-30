@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramtetri Rest</title>
+</head>
+<body>
+    <h2>Paramtetri Rest</h2>
+    <p> <b>Rest </b> in inglese significa rest| restante. Con <code> Parametri rest</code> raccogliamo un numero non definito di paramteri 
+    in un array  </p>
+    <p> Quando dichiariamo una funzione indichiamo il numero di parametri -> che tendenzialmetne valorriazziamo <br>
+    può capitale in alcune funzioni di vedere n parametri <em> i parametri delle funzini vengono inseriti in array <code>arguments</code></em><br>
+ Con i parametri rest <code> ...</code> possimo racchiudere i paramtetri di troppo</p>
+
+ <script>
+    function myFun(a, b,... altri_argomenti ){
+        console.log ("a", a);
+        console.log ("b", b);
+        console.log ("altri argometni", altri_argomenti);
+
+    }
+    myFun("uno", "due", "tre", "quattro", "cinque", "sei")
+    //a , uno
+    //b, due 
+    // alri_argormenti, ["tre", "quattro", "cinque", "sei"]
+
+
+
+    ////////ESEMPIO 2 
+
+    function sum (... mieiArgormenti ){
+        let total=0;
+        for (let arg of mieiArgormenti){
+            total+=arg;
+        }
+        return total;
+    }
+
+    console.log ( sum (1, 2, 3));     //output -> 6
+    console.log ( sum (1, 2, 3, 4));     //output -> 10
+    console.log ( sum (1, 2, 3, 5));     //output -> 15;
+ </script>
+
+ <h3> For ...of </h3>
+ <p><code> for ...of </code> è una varibile del ciclo <code> for</code> che esegue su un loop dei uoi valori che vengono da un oggetto iterabile
+(array ad esempi)</p>
+<p> Sinassi -> dichiarro il singolo elemento della collezione</p>
+<script>
+
+    let array1= ['a','b', 'c', 'd']
+
+    for (let element of array1){
+        console.log (element);
+    }
+
+    // output 'a','b', 'c', 'd'
+</script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oggetto</title>
+</head>
+<body>
+    <h2> Gli Oggetti</h2>
+    <ul> 
+        <li>Tuttuo ciò che non è unu dato primitivo è un oggetto</li> 
+        <li> Gli oggetti rappresentano entità più complese di singoli dayi (numeri, stringhe boolean...) </li>
+        <li><b>Modellazione:</b> uso gli oggetti per rappresentare specifiche entità ( persona, evento, prodotto, fattura, canzoone ecc..)</li>
+        <ul>
+            UN oggetto possiede:
+            <li> dati, detti <b> proprietà </b> rappresentati da coppie chiave: valore</li>
+            <li> Funzione detti <b> metodi</b> rapprentazioni delle funzioni</li>
+        </ul>
+
+        <li>li per creare un oggetto usermo la <b> rappresentazone leterale </b>: definiamo un oggetto a partire dal contenuto </li>
+    </ul>
+
+    <script>
+    var oggettoVuoto = {};// definisco un oggetto vuoto sintassi { mi preparo ad avere un tipo di dato complesso}
+    var persona = { 
+        nome: "Federico", 
+        cognome:" De Ambrosis", 
+        età: 43}; 
+
+        console.log (persona);
+        
+        // coppie chiave: valore
+        // sulle chiavi o nomi non ci sono restrizione di naming che abbiamo per le variabili
+        // se usiamo i caratteri speciali le chiave o nomi DEVONO ESEERE DELIMITATI DA DOPPI APICI ""
+
+    var persona2 = { 
+        "primo-nome": "Federico", 
+        "cognome": "De Ambrosis", 
+        "eta": "43"
+    };
+    console.log (persona2);
+
+    // proprietà può assumere qualsiasi valore primitivo (stringa, numero, bolleano, null), compreso un altro oggetto
+    // non soltando i tipi di dati primitiva di dati ma anche oggetti
+    var persona3 = { 
+        nome : "Federico",
+        cognome: "De Ambrosis ",
+        età: 43,
+        indirizzo : {
+            via: "Pippo",
+            numero: 1,
+            città: "Milano"
+        },
+        data_nascita:21,
+    };
+
+    console.log (persona3);
+
+    //accedere a una proprietà dell'oggetto -> dott notation 
+
+    var nome = persona.nome;        // accedo alla proprietà nome dell'oggetto persona
+    //la dot  notation è la modalità standard per accedere a una proprietà di un oggetto 
+    
+     var nome2=persona2 ["primo-nome"]   // suare bracket notation (le uso solo se non posso usare la dot notation)
+
+     var indirizzo= persona.indirizzo; // se accedo a n proprietà non definita -> undefined
+
+     // definizione incrementale
+
+    persona3.sport= "rugby";// posso agigungere proprietà ad un oggetto
+    // gli oggetti ono dimamici, la struttura è flessibile ed è modificabile mentre eseguiamo uno script
+
+
+    var user= {}; // parto da user vuota
+    user.nome="federico";           // dai cioè proprietà: coppie noe: valore separate da una ,
+    user.cognome=" De ambrosis";    
+    user.età= 43;
+
+    //eliminare una proprietà 
+    delete user.età;
+    console.log(user.età) // indefined
+    </script>
+    
+</body>
+</html>

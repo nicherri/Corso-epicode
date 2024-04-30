@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserire elemente nel DOM</title>
+</head>
+<body>
+    <h2>Inserire elementenel DOM tramite Javascript</h2>
+    <p>creare un nuovo  paragrafo p con del testo e inserirlo </p>
+    <div id="mydiv"> </div>
+
+    <script>
+        let paragrafo = document.createElement("p");                            // creo un elemento, nel paramaegtro dico che tipo di elemento è
+        paragrafo.innerHTML="Questo è il mio nuovo paragrado";                  // inserire testi semplivci (senza formattazione)          
+        
+        // non è suffucente creare l'elemento per vederlo a video
+        // devo aggiungere un comadno per inserilo (finora ho solo creato)
+
+        document.body.appendChild(paragrafo)                                    //appendChild dico di inserire il paragrafo in coda a <body>
+        
+        let paragrafo2 = document.createElement("p");
+        paragrafo.innerHTML=" Lorem ipsum dolor, sit amet consectetur adipisicing elit. <b>Nemo enim natus suscipit quibusdam deserunt alias fugiat nam harum quis.</b>" // innerHtmlposso aggiungere una formattazione
+
+        document.body.appendChild(paragrafo2);
+        
+        
+    // ! posso con appendChild inserisco sempre il tag in fondo al contenitore
+    // posso creare e assegnare il contenuto separatamente
+
+    let btn =document.createElement ("button");
+    btn.innerHTML=" boottone CIao";
+    document.body.appendChild(btn);
+    </script>
+
+    <p> Cose che so:</p>
+    <ul id="mylist1"> 
+        <li>Html</li>
+        <li>Css</li>
+    </ul>
+
+    <p> Cose che non so:</p>
+    <ul id="mylist2">  
+        <li>javascript</li>
+        <li>Angolar</li>
+    </ul>
+
+    <button onclick="myfunction()">Sposta da sopra a sotto </button>
+
+    <script> 
+        function myfunction(){
+            let node =document.getElementById("mylist2").firstElementChild;
+            document.getElementById("mylist1").appendChild(node);
+        }
+    </script>
+    <hr>
+
+        <p> COsa che devo fare: </p>
+        <ul id=" myList">
+            <li>andare al bar</li>
+            <li> andare al concerto</li>
+        </ul>
+        <button onclick="myfunction_weekend()"></button>
+ 
+        <script> 
+        let  newnode = document.createElement("li");                        // creare un <li>
+        let textNOde = document.createTextNode (" stuiare javascript");     // create un testo che devo aggiiungere al li
+        newnode.appendChild(textNOde);                                      //appendo il testo al li 
+        let list =document.getElementById("myLIst");                        //inseriscoin mylist
+        list.insertBefore(newnode, list.children[0]);                       // children perchè li è figlio di ul 
+            
+
+        //replace CHild
+        //uso replaceChild per sostituire un deteminato valore della mia liata
+
+        function myfunction_weekend(){
+            //seleziono il primo elleemento di una lista ->  entro nella ul -> mi faccio dare il mio childer
+            let element = document.getElementById("mylist").children[0];
+            // crep un nuovo testo 
+            let sabato = document.createTextNode( "vado al mare");
+            //sostituisco
+
+            element.replaceChild (sabato, element.childNodes[0]);
+        }
+        </script>
+
+
+</body>
+</html>
