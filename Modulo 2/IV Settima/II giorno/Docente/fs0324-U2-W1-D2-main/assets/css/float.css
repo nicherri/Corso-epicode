@@ -1,0 +1,77 @@
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0 20px;
+  border: 1px solid black;
+}
+
+header h1 {
+  text-align: center;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+aside {
+  margin-bottom: 1em;
+}
+
+aside#left {
+  float: left;
+  /* float assegna l'elemento ad un lato del contenitore, left o right. */
+  /* IMPORTANTE: l'elemento a cui assegnerete la proprietà "float" NON contribuirà più
+  all'altezza del proprio contenitore (nel nostro caso l'immagine SBORDA dal body!) */
+  /* margin-right: 1em; */
+  /* inseriamo anche una spaziatura verso il basso per staccarla un po' dal footer */
+}
+
+aside#left img {
+  margin-right: 0.5em;
+}
+
+aside#right img {
+  margin-left: 0.5em;
+}
+
+aside#right {
+  float: right;
+}
+
+aside img {
+  width: 100%;
+}
+
+footer {
+  text-align: center;
+  /* voglio che dal footer in poi il flow della pagina venga ripristinato: con clear: left "resetto" il float: left */
+  /* clear: left; */
+  /* mettiamo ora clear: both per pulire entrambi i float, sia left che right */
+  clear: both;
+}
+
+@media screen and (min-width: 769px) {
+  /* schermi da "tablet" in su */
+
+  body {
+    max-width: 800px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: 0 auto;
+  }
+
+  ul li {
+    /* dispone, su schermi sufficientemente grandi, gli elementi del menu in orizzontale */
+    display: inline;
+    margin-right: 5px;
+  }
+
+  aside img {
+    max-width: 250px;
+  }
+}

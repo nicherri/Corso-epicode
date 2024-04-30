@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Z-Index e ordine di rendering</title>
+    <style>
+      .container {
+        position: relative;
+        height: 600px;
+        width: 600px;
+        border: 1px solid black;
+      }
+
+      .box {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+      }
+
+      #red {
+        background-color: red;
+        z-index: 2;
+      }
+      #blue {
+        background-color: blue;
+        left: 50px;
+        top: 50px;
+        z-index: 1;
+      }
+      #green {
+        background-color: green;
+        left: 100px;
+        top: 100px;
+        z-index: 0;
+      }
+
+      .rect {
+        width: 500px;
+        height: 300px;
+        background-color: pink;
+        position: relative;
+        top: -470px;
+        /* senza z-index questo rect si comporta come uno z-index di 0 in questo caso,
+        e vince sul box green solamente perchè è dichiarato DOPO nel foglio HTML */
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Z-INDEX</h1>
+      <p>
+        Normalmente, in caso di elementi sovrapposti l'uno sull'altro,
+        l'elemento posizionato in cima corrisponde all'ultimo elemento
+        renderizzato dal browser, e di conseguenza all'ultimo elemento
+        dichiarato nel foglio HTML. Tramite la proprietà z-index è possibile
+        alterare l'ordine di "stacking" ("impilamento"), con un risultato che
+        sarebbe al pari di alterare l'ordine dei tag inseriti nel foglio HTML.
+        Il valore di default di z-index è "auto"; è possibile fornire un valore
+        numerico in modo da fornire una precisa sequenza di rendering: il valore
+        più alto risulterà "più in cima" di un valore più basso. In caso di più
+        elementi dotati dello stesso valore oppure di più elementi dotati del
+        valore di default "auto", fa fede l'ordine di inserimento degli elementi
+        nel foglio HTML. N.B: è possibile utilizzare la proprietà z-index SOLO
+        su elementi "posizionati" (un elemento NON dotato di "position:
+        static"), al pari delle proprietà "top", "bottom", "left" e "right".
+      </p>
+      <div class="container">
+        <div class="box" id="red"></div>
+        <div class="box" id="blue"></div>
+        <div class="box" id="green"></div>
+      </div>
+      <div class="rect"></div>
+    </main>
+  </body>
+</html>

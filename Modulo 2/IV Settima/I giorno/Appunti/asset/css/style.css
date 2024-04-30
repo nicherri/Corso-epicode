@@ -1,0 +1,36 @@
+/* 
+    scriveremo qui le nostre regole di stile!
+    ATTENZIONE: lo sviluppo web moderno abbraccia la filosofia "MOBILE FIRST"
+    questo significa che qui dentro avremo innanzitutto le regole applicate a schermi di PICCOLA dimensione
+*/
+
+/* STILI MOBILE */
+
+body {
+  margin: 0;
+  padding: 10px;
+  background-color: bisque;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+main img {
+  max-width: 100%;
+}
+
+@media screen {
+  
+}

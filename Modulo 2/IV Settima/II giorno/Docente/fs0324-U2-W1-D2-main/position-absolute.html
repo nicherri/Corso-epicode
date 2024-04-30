@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position: absolute</title>
+    <style>
+      .absolute {
+        position: absolute;
+        border: 2px solid red;
+      }
+
+      .box {
+        width: 400px;
+        height: 400px;
+        background-color: lightgreen;
+        position: relative;
+        margin-bottom: 10em;
+      }
+
+      .card {
+        width: 100px;
+        height: 250px;
+        display: inline-block;
+        position: relative;
+        background-color: aquamarine;
+      }
+
+      .badge {
+        position: absolute;
+        display: inline-block;
+        width: 30px;
+        height: 20px;
+        text-align: center;
+        background-color: red;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>POSITION: ABSOLUTE</h1>
+      <p>
+        Un elemento dotato di position: absolute è posizionato in modo ASSOLUTO
+        rispetto all'area del documento. Possiamo utilizzare le proprietà "top",
+        "right", "left" e "bottom" per posizionarlo a nostro piacimento.
+      </p>
+      <div class="box">
+        <div class="absolute">
+          Questo div è posizionato con position: absolute
+        </div>
+      </div>
+      <div class="card">
+        <div class="badge">15</div>
+      </div>
+      <div class="card">
+        <div class="badge">5</div>
+      </div>
+    </main>
+  </body>
+</html>
