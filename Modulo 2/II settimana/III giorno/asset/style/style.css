@@ -1,0 +1,82 @@
+@import "../partial/main.scss" header;
+html,
+body,
+div,
+form,
+fieldset,
+legend,
+label {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+td,
+caption {
+  font-weight: normal;
+}
+
+img {
+  border: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  height: 6em;
+  justify-content: space-between;
+}
+
+#headerLogo {
+  max-width: 5em;
+  padding: 0 1em;
+}
+
+#heardLogo img {
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  padding: 0 2em;
+}
+
+nav ul li {
+  padding: 0 1em;
+  color: white;
+}
+
+section {
+  background-image: linear-gradient(45deg, #d71414, #460202);
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+}/*# sourceMappingURL=style.css.map */
