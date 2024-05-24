@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10 d-flex justify-content-around ms-auto me-auto mt-3">
+      <div class="col-6" id="dimensioneLogo">
+          <img src="{{brandLogo}}">
+      </div>
+      <div class="col-6 p-5 bg-body-secondary text-dark rounded">
+          <h1>Le nostre auto {{brand}}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5 ">
+      <div class="col-6 col-md-4 col-lg-5 justify-content-between mt-2 ms-auto me-auto" *ngFor="let auto of autoArr">
+          <div class="card" [ngClass]="{
+              'ConfermaProntaConsegna': auto.available,
+              'NonConferma': !auto.available
+          }">
+              <img src="{{auto.modelImage}}"
+                  class="card-img-top"
+                  alt="{{auto.brand}} {{auto.model}}">
+              <div class="card-body">
+                  <h5 class="card-title h2">{{auto.brand}} {{auto.model}}
+                  </h5>
+                  <p class="card-text h4">
+                      <span
+                          class="badge bg-primary me-1 text-uppercase">Anno:
+                          {{auto.year}}</span>
+                      <span
+                          class="badge bg-primary me-1 text-uppercase">Prezzo:
+                          {{auto.price}}</span>
+                      <span *ngIf="auto.available; else elseSpan"
+                          class="badge bg-primary me-1 text-uppercase">Pronta
+                          consegna: sì</span>
+                          <ng-template #elseSpan>
+                              <span
+                          class="badge bg-primary me-1 text-uppercase">Pronta
+                          consegna: no</span>
+                          </ng-template>
+                  </p>
+              </div>
+          </div>
+      </div>
+</div>
+

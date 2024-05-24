@@ -1,0 +1,56 @@
+[
+    {
+        "brand": "Fiat",
+        "brandLogo": "https://upload.wikimedia.org/wikipedia/it/thumb/9/9e/Logo_della_Fiat.svg/2048px-Logo_della_Fiat.svg.png",
+        "model": "500L",
+        "modelImage": "https://www.kimballstock.com/pix/car/p/06/aut-51-iz0279-01p.jpg",
+        "year": 2015,
+        "price": 7500,
+        "available": false
+    },
+    {
+        "brand": "Fiat",
+        "brandLogo": "https://upload.wikimedia.org/wikipedia/it/thumb/9/9e/Logo_della_Fiat.svg/2048px-Logo_della_Fiat.svg.png",
+        "model": "500 Abarth",
+        "modelImage": "https://www.kimballstock.com/pix/car/p/06/aut-51-iz0251-01p.jpg",
+        "year": 2010,
+        "price": 3500,
+        "available": true
+    },
+    {
+        "brand": "Ford",
+        "brandLogo": "https://www.logo.wine/a/logo/Ford_Motor_Company/Ford_Motor_Company-Logo.wine.svg",
+        "model": "Taurus",
+        "modelImage": "https://www.kimballstock.com/pix/car/p/01/aut-15-iz0612-01p.jpg",
+        "year": 2009,
+        "price": 5200,
+        "available": false
+    },
+    {
+        "brand": "Ford",
+        "brandLogo": "https://www.logo.wine/a/logo/Ford_Motor_Company/Ford_Motor_Company-Logo.wine.svg",
+        "model": "Focus",
+        "modelImage": "https://www.kimballstock.com/pix/car/p/05/aut-50-iz0343-01p.jpg",
+        "year": 2014,
+        "price": 9700,
+        "available": true
+    },
+    {
+        "brand": "Audi",
+        "brandLogo": "https://download.logo.wine/logo/Audi/Audi-Logo.wine.png",
+        "model": "A3",
+        "modelImage": "https://www.kimballstock.com/pix/car/p/05/aut-46-iz0058-01p.jpg",
+        "year": 2012,
+        "price": 4300,
+        "available": true
+    },
+    {
+        "brand": "Audi",
+        "brandLogo": "https://download.logo.wine/logo/Audi/Audi-Logo.wine.png",
+        "model": "Q7",
+        "modelImage": "https://www.kimballstock.com/pix/car/p/02/aut-15-iz0930-01p.jpg",
+        "year": 2020,
+        "price": 41700,
+        "available": false
+    }
+]

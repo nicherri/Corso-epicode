@@ -1,0 +1,52 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-10 ms-auto me-auto mt-3 align-items-center bg-secondary-subtle d-flex flex-column pt-4 pb-4">
+      <div id="dimensioneLogo">
+        <img src="../../../assets/img/Logo.png" alt="Logo Autorent">
+      </div>
+      <div>
+        <h2>Convenienza e Affidabilità su Ruote</h2>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <h3>I nostri Marchi</h3>
+      <ul class="d-flex justify-content-around">
+        <li class="list-unstyled d-flex justify-content-between" id="stileLogo"   *ngFor="let brand of brands">
+          <img src="{{brand}}" alt="Logo"></li>
+      </ul>
+    </div>
+    <hr class="col-10 mt-5 m-auto text-center ">
+    <div class="mt-4 justify-content-center ms-auto me-auto justify-content-center">
+      <div class="row justify-content-center">
+        <h3 class="text-center">Le nostre Auto in evidenza</h3>
+        <div class="col-6 col-md-4 col-lg-5 justify-content-between mt-2" *ngFor="let random of randomAutos">
+          <div class="card" [ngClass]="{
+            'ConfermaProntaConsegna': random.available,
+            'NonConferma': !random.available }">
+            <img src="{{random.modelImage}}" class="card-img-top" alt="imgAuto">
+            <div class="card-body">
+              <h5 class="card-title text-white text-center">{{random.brand}} {{random.model}}</h5>
+              <div class="d-flex justify-content-between flex-wrap">
+              <p class="card-text bg-primary rounded text-white ps-1 pe-1">Anno di uscita: {{random.year}}</p>
+              <p class="bg-primary rounded text-white ps-1 pe-1">Prezzo: {{random.price}} €</p>
+            </div>
+             <p class="text-center  fs-md-4"> <span *ngIf="random.available; else elseSpan"
+              class="badge bg-primary me-1 text-uppercase text-wrap">Pronta
+              consegna: sì</span>
+              <ng-template #elseSpan>
+                  <span
+              class="badge bg-primary me-1 text-uppercase text-wrap word">Pronta
+              consegna: no</span>
+              </ng-template></p>
+              <a  [routerLink]="['/' + random.brand]" class="btn btn-primary me-1 text-uppercase justify-content-center align-items-center d-flex text-wrap">Tutte le nostre <span class="badge fs-sm-3">{{random.brand}}</span></a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

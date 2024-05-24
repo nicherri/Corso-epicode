@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark " id="coloreNav">
+  <div class="container-fluid">
+    <div id="dimensioniLogo"><a class="navbar-brand" [routerLink]="['/']"><img src="../../../assets/img/Logo.png" ></a></div>
+      <button   (click)="show = !show" class="navbar-toggler" type="button"
+          data-bs-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse"  [ngClass]="{'show':show}">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link active" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['Audi']" routerLinkActive="active">Audi</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['Fiat']" routerLinkActive="active">Fiat</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['Ford']" routerLinkActive="active">Ford</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
