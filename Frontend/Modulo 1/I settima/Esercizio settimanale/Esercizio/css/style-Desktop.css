@@ -1,0 +1,206 @@
+/* Your styles here */
+body{
+    background-color: #0E0E0E;
+   text-align: center;
+   margin: 0;
+   }
+
+body p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.65;
+    color: #393d41;
+    text-align: center;
+    padding: 0 2em;
+}
+
+header{
+    background: #000000;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    height: 2.3vw;
+    text-align: left;
+    margin: 5px;
+}
+
+header img{
+   height: 100%;
+
+}
+
+nav{
+    background-image: url(../images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: auto%;
+    height: 45em;
+    align-content: center;
+}
+
+nav h1{
+    text-align: center;
+    padding: 0 2em;
+}
+
+h1, h3{
+    color: #2BA4CB;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+
+h1{font-size: 2em;}
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: #f04c2f;
+    border-radius: 10px;
+    width: auto;
+    margin-top: 3em;
+    padding: 10px;
+}
+/*Inizio main*/
+main{
+    background-color: white;
+    margin: -2em auto;
+    padding: 4em 7em;
+    align-content: center;
+
+}
+
+article{
+    float: right;
+    width: 50%;
+}
+.immagine_accanto{
+    float: left;
+    width: 50%;
+    text-align: center;
+
+}
+
+.immagine_accanto img{
+    width: 65%;
+    border-radius: 50%;
+}
+
+
+.titoli_paragrafi p{
+    margin: 0;
+    text-align: justify;
+    padding: 0;
+
+}
+.titoli_paragrafi h3{
+    font-size: 1.9em;
+    margin: 0;
+    text-align: justify;
+}
+
+
+
+
+section{
+    background-color: #e22d0e;
+    padding: 2em;
+    color: white;
+}
+
+section h2{
+    font-size: 3em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+
+section cite{
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.65;
+    text-align: center;
+    padding: 1em 2em;
+}
+
+section figcaption{
+    margin: 2em 0 0 0;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+section p{
+    color: white;
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/*Aside*/
+aside{
+    padding: 3em 1em;
+    background-color: white;
+    height: 600px;
+    width: ;
+}
+
+.spostamento-sinistra{
+    float: left;
+    display: inline;
+    width: 33%;
+}
+
+.spostamento-destra{
+    float: right;
+    display: inline;
+    width: 33%;
+}
+
+.articoli_collerati{
+    margin: 2em 2em;
+    box-shadow: 1px 1px 1px #393d41;
+}
+
+.articoli_collerati img{
+    width: 100%;
+}
+
+footer {
+    background-color: #25A2C5;
+    margin: -2em 0;
+    padding: 1em 0;
+}
+hr{ margin: 0 7em;}
+
+footer h2{
+    color: white;
+    font-size: 2em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+
+footer ol{
+    list-style: none;
+    padding: 0;
+}
+
+footer a, li, p{
+    color: white;
+    
+}
+
+ion-icon {
+    color: white;
+}
+
+
+footer p{
+    color: white;
+    font-size: 1em;
+}
