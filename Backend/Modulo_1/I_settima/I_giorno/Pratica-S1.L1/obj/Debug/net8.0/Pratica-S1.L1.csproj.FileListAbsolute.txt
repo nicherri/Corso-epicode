@@ -1,0 +1,15 @@
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\bin\Debug\net8.0\Pratica-S1.L1.exe
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\bin\Debug\net8.0\Pratica-S1.L1.deps.json
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\bin\Debug\net8.0\Pratica-S1.L1.runtimeconfig.json
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\bin\Debug\net8.0\Pratica-S1.L1.dll
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\bin\Debug\net8.0\Pratica-S1.L1.pdb
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\Pratica-S1.L1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\Pratica-S1.L1.AssemblyInfoInputs.cache
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\Pratica-S1.L1.AssemblyInfo.cs
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\Pratica-S1.L1.csproj.CoreCompileInputs.cache
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\Pratica-S1.L1.sourcelink.json
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\Pratica-S1.L1.dll
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\refint\Pratica-S1.L1.dll
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\Pratica-S1.L1.pdb
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\Pratica-S1.L1.genruntimeconfig.cache
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\I_settima\I_giorno\Pratica-S1.L1\obj\Debug\net8.0\ref\Pratica-S1.L1.dll
