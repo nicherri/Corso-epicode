@@ -1,0 +1,15 @@
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\Esercizio_del_Giorno.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\Esercizio_del_Giorno.AssemblyInfoInputs.cache
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\Esercizio_del_Giorno.AssemblyInfo.cs
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\Esercizio_del_Giorno.csproj.CoreCompileInputs.cache
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\Esercizio_del_Giorno.sourcelink.json
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\bin\Debug\net8.0\Esercizio_del_Giorno.exe
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\bin\Debug\net8.0\Esercizio_del_Giorno.deps.json
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\bin\Debug\net8.0\Esercizio_del_Giorno.runtimeconfig.json
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\bin\Debug\net8.0\Esercizio_del_Giorno.dll
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\bin\Debug\net8.0\Esercizio_del_Giorno.pdb
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\Esercizio_del_Giorno.dll
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\refint\Esercizio_del_Giorno.dll
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\Esercizio_del_Giorno.pdb
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\Esercizio_del_Giorno.genruntimeconfig.cache
+C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_1\II_settima\II_giorno\Console\Esercizio_del_Giorno\obj\Debug\net8.0\ref\Esercizio_del_Giorno.dll

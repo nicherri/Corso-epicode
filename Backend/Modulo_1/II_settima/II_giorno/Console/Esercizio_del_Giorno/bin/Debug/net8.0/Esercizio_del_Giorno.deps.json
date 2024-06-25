@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Esercizio_del_Giorno/1.0.0": {
+        "runtime": {
+          "Esercizio_del_Giorno.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Esercizio_del_Giorno/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
