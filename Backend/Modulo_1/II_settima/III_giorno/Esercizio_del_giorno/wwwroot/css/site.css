@@ -1,0 +1,13 @@
+/* wwwroot/css/site.css */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer {
+    padding: 10px 0;
+}
+
+.jumbotron {
+    margin-top: 20px;
+}

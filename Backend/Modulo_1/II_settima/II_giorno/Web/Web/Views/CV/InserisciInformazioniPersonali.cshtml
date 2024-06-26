@@ -1,0 +1,20 @@
+﻿@page
+@model Web.Views.CV.InserisciInformazioniPersonaliModel
+@{
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Inserisci Informazioni Personali</title>
+    </head>
+    <body>
+        <h1>Inserisci Informazioni Personali</h1>
+        <form asp-action="InserisciInformazioniPersonali" method="post">
+            <p>Nome: <input type="text" asp-for="Nome" /></p>
+            <p>Cognome: <input type="text" asp-for="Cognome" /></p>
+            <p>Telefono: <input type="text" asp-for="Telefono" /></p>
+            <p>Email: <input type="text" asp-for="Email" /></p>
+            <p><input type="submit" value="Salva" /></p>
+        </form>
+    </body>
+    </html>
+}
