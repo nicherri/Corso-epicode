@@ -1,0 +1,90 @@
+﻿<!-- Views/Home/Index.cshtml -->
+@model Esercizio_del_giorno.Models.StatisticheViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1 class="display-4">Biglietteria</h1>
+    <p class="lead">Prenota il tuo biglietto per una delle nostre sale.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- Form per la prenotazione dei biglietti -->
+        <form method="post" asp-action="Index">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required />
+            </div>
+            <div class="form-group">
+                <label for="cognome">Cognome:</label>
+                <input type="text" class="form-control" id="cognome" name="cognome" required />
+            </div>
+            <div class="form-group">
+                <label for="sala">Sala:</label>
+                <select class="form-control" id="sala" name="sala" required>
+                    <option value="SALA NORD">SALA NORD</option>
+                    <option value="SALA EST">SALA EST</option>
+                    <option value="SALA SUD">SALA SUD</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tipoBiglietto">Tipo Biglietto:</label>
+                <select class="form-control" id="tipoBiglietto" name="tipoBiglietto" required>
+                    <option value="Intero">Intero</option>
+                    <option value="Ridotto">Ridotto</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Prenota</button>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Statistiche</h2>
+
+        <!-- Sezione SALA NORD -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">SALA NORD</h5>
+                <p class="card-text">Biglietti Venduti: @Model.BigliettiVendutiNord</p>
+                <p class="card-text">Biglietti Ridotti: @Model.BigliettiRidottiNord</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width:@((Model.BigliettiVendutiNord / (double)Model.CapienzaSala) * 100)%">
+                        @Model.BigliettiVendutiNord / @Model.CapienzaSala
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione SALA EST -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">SALA EST</h5>
+                <p class="card-text">Biglietti Venduti: @Model.BigliettiVendutiEst</p>
+                <p class="card-text">Biglietti Ridotti: @Model.BigliettiRidottiEst</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width:@((Model.BigliettiVendutiEst / (double)Model.CapienzaSala) * 100)%">
+                        @Model.BigliettiVendutiEst / @Model.CapienzaSala
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione SALA SUD -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">SALA SUD</h5>
+                <p class="card-text">Biglietti Venduti: @Model.BigliettiVendutiSud</p>
+                <p class="card-text">Biglietti Ridotti: @Model.BigliettiRidottiSud</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width:@((Model.BigliettiVendutiSud / (double)Model.CapienzaSala) * 100)%">
+                        @Model.BigliettiVendutiSud / @Model.CapienzaSala
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
