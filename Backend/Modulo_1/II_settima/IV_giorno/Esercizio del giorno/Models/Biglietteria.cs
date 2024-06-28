@@ -1,6 +1,11 @@
-﻿namespace Esercizio_del_giorno.Models
+﻿// Models/Biglietteria.cs
+using Esercizio_del_giorno.Models;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace EsercizioCinema.Models
 {
-    public class Biglietteria
+    public static class Biglietteria
     {
         public static List<Biglietto> BigliettiVenduti = new List<Biglietto>();
         public const int CapienzaSala = 120;

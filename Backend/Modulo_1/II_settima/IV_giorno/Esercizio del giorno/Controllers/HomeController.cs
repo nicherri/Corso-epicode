@@ -1,5 +1,6 @@
 // Controllers/HomeController.cs
 using Esercizio_del_giorno.Models;
+using EsercizioCinema.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
