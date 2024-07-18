@@ -1,0 +1,91 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SpedizioniWebApp
+build_property.RootNamespace = SpedizioniWebApp
+build_property.ProjectDir = C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_2\I_settima\IV_giorno\SpedizioniWebApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_2\I_settima\IV_giorno\SpedizioniWebApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Account/ManageRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNYW5hZ2VSb2xlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Clienti/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50aVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Clienti/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50aVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Clienti/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50aVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Clienti/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50aVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/User/VerificaSpedizione.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxWZXJpZmljYVNwZWRpemlvbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/User/VisualizzaAggiornamenti.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxWaXN1YWxpenphQWdnaW9ybmFtZW50aS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/I_settima/IV_giorno/SpedizioniWebApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-sxfr7rlhyb

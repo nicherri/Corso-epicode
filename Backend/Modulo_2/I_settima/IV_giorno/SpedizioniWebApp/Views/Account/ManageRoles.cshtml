@@ -1,0 +1,21 @@
+﻿@model SpedizioniWebApp.Models.ManageUserRolesViewModel
+
+@{
+    ViewData["Title"] = "Gestisci Ruoli Utente";
+}
+
+<h2>Gestisci Ruoli per @Model.UserName</h2>
+
+<form asp-action="ManageRoles" method="post">
+    <input type="hidden" asp-for="UserId" />
+    @foreach (var userRole in Model.UserRoles)
+    {
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" asp-for="@userRole.Selected" />
+            <label class="form-check-label" asp-for="@userRole.Selected">
+                @userRole.RoleName
+            </label>
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Salva</button>
+</form>

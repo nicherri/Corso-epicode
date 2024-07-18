@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SpedizioniWebApp.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Lista Clienti";
+}
+
+<h2>Lista Clienti</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Codice Fiscale</th>
+            <th>Partita IVA</th>
+            <th>Tipo Cliente</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <td>@cliente.Nome</td>
+                <td>@cliente.Cognome</td>
+                <td>@cliente.CodiceFiscale</td>
+                <td>@cliente.PartitaIVA</td>
+                <td>@cliente.TipoCliente</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@cliente.Id" class="btn btn-primary">Modifica</a>
+                    <a asp-action="Delete" asp-route-id="@cliente.Id" class="btn btn-danger">Elimina</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create" class="btn btn-success">Aggiungi Cliente</a>
