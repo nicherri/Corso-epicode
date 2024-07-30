@@ -1,0 +1,168 @@
+﻿@model Hotel.Models.Prenotazione
+
+@{
+    ViewData["Title"] = "Aggiungi Prenotazione";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="ClienteId" class="control-label">Cliente</label>
+        <select asp-for="ClienteId" class="form-control" asp-items="@(new SelectList(ViewBag.Clienti, "Id", "Nome"))">
+            <option value="">Seleziona Cliente</option>
+        </select>
+        <span asp-validation-for="ClienteId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TipologiaCameraId" class="control-label">Tipologia Camera</label>
+        <select id="TipologiaCameraId" name="TipologiaCameraId" class="form-control" onchange="loadCamereByTipologia(this.value)">
+            <option value="">Seleziona Tipologia</option>
+            @foreach (var tipologia in ViewBag.TipologieCamere)
+            {
+                <option value="@tipologia.Id">@tipologia.Nome</option>
+            }
+        </select>
+        <span asp-validation-for="TipologiaCameraId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CameraId" class="control-label">Camera</label>
+        <select id="CameraId" name="CameraId" class="form-control" onchange="loadCameraDetails(this.value)">
+            <option value="">Seleziona Camera</option>
+        </select>
+        <span asp-validation-for="CameraId" class="text-danger"></span>
+    </div>
+    <div id="cameraDetails" style="display: none;">
+        <div class="form-group">
+            <label>Descrizione</label>
+            <p id="CameraDescrizione"></p>
+        </div>
+        <div class="form-group">
+            <label>Posti Letto</label>
+            <p id="CameraPostiLetto"></p>
+        </div>
+        <div class="form-group">
+            <label>Prezzo</label>
+            <p id="CameraPrezzo"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataPrenotazione" class="control-label">Data Prenotazione</label>
+        <input asp-for="DataPrenotazione" class="form-control" type="date" />
+        <span asp-validation-for="DataPrenotazione" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NumeroProgressivo" class="control-label">Numero Progressivo</label>
+        <input asp-for="NumeroProgressivo" class="form-control" />
+        <span asp-validation-for="NumeroProgressivo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Anno" class="control-label">Anno</label>
+        <input asp-for="Anno" class="form-control" />
+        <span asp-validation-for="Anno" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Dal" class="control-label">Dal</label>
+        <input asp-for="Dal" class="form-control" type="date" />
+        <span asp-validation-for="Dal" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Al" class="control-label">Al</label>
+        <input asp-for="Al" class="form-control" type="date" />
+        <span asp-validation-for="Al" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CaparraConfirmatoria" class="control-label">Caparra Confirmatoria</label>
+        <input asp-for="CaparraConfirmatoria" class="form-control" />
+        <span asp-validation-for="CaparraConfirmatoria" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PrezzoTariffa" class="control-label">Prezzo Tariffa</label>
+        <input asp-for="PrezzoTariffa" class="form-control" readonly />
+        <span asp-validation-for="PrezzoTariffa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DettagliSoggiornoId" class="control-label">Dettagli Soggiorno</label>
+        <select asp-for="DettagliSoggiornoId" class="form-control" asp-items="@(new SelectList(ViewBag.DettagliSoggiornoId, "Id", "Nome"))">
+            <option value="">Seleziona Dettaglio Soggiorno</option>
+        </select>
+        <span asp-validation-for="DettagliSoggiornoId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImmagineCover" class="control-label">Immagine Cover</label>
+        <input asp-for="ImmagineCover" class="form-control" />
+        <span asp-validation-for="ImmagineCover" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#serviziAggiuntivi" aria-expanded="false" aria-controls="serviziAggiuntivi">
+            Servizi Aggiuntivi
+        </button>
+    </div>
+    <div class="collapse" id="serviziAggiuntivi">
+        <div class="card card-body">
+            @foreach (var servizio in ViewBag.Servizi)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="@servizio.Id" id="servizio_@servizio.Id" name="serviziSelezionati" />
+                    <label class="form-check-label" for="servizio_@servizio.Id">@servizio.Nome (@servizio.Prezzo €)</label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Salva" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Torna alla lista</a>
+</div>
+
+@section Scripts {
+    <script>
+        function loadCamereByTipologia(tipologiaId) {
+            if (tipologiaId) {
+                $.ajax({
+                    url: '@Url.Action("GetCamereByTipologia", "Prenotazione")',
+                    type: 'GET',
+                    data: { tipologiaId: tipologiaId },
+                    success: function (data) {
+                        $('#CameraId').empty();
+                        $('#CameraId').append('<option value="">Seleziona Camera</option>');
+                        $.each(data, function (index, item) {
+                            $('#CameraId').append('<option value="' + item.id + '">' + item.numero + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#CameraId').empty();
+                $('#CameraId').append('<option value="">Seleziona Camera</option>');
+            }
+        }
+
+        function loadCameraDetails(cameraId) {
+            if (cameraId) {
+                $.ajax({
+                    url: '@Url.Action("GetCameraDetails", "Prenotazione")',
+                    type: 'GET',
+                    data: { cameraId: cameraId },
+                    success: function (data) {
+                        $('#cameraDetails').show();
+                        $('#CameraDescrizione').text(data.descrizione);
+                        $('#CameraPostiLetto').text(data.postiLetto);
+                        $('#CameraPrezzo').text(data.prezzo + ' €');
+                        $('#PrezzoTariffa').val(data.prezzo); // Imposta il prezzo della tariffa automaticamente
+                    }
+                });
+            } else {
+                $('#cameraDetails').hide();
+                $('#CameraDescrizione').text('');
+                $('#CameraPostiLetto').text('');
+                $('#CameraPrezzo').text('');
+                $('#PrezzoTariffa').val('');
+            }
+        }
+    </script>
+}

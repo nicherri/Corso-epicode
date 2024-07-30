@@ -1,0 +1,304 @@
+CREATE TABLE Cliente (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    CodiceFiscale NVARCHAR(16) NOT NULL,
+    Cognome NVARCHAR(50) NOT NULL,
+    Nome NVARCHAR(50) NOT NULL,
+    Citta NVARCHAR(50) NOT NULL,
+    Provincia NVARCHAR(2) NOT NULL,
+    Email NVARCHAR(50),
+    Telefono NVARCHAR(15),
+    Cellulare NVARCHAR(15)
+);
+
+CREATE TABLE TipologiaCamera (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nome NVARCHAR(50) NOT NULL,
+    Immagine NVARCHAR(MAX) NOT NULL
+);
+
+CREATE TABLE Camera (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Descrizione NVARCHAR(100),
+    PostoLetto INT NOT NULL,
+    TipologiaCameraId INT NOT NULL,
+    Prezzo DECIMAL(18, 2) NOT NULL,
+    FOREIGN KEY (TipologiaCameraId) REFERENCES TipologiaCamera(Id)
+);
+
+CREATE TABLE ImmaginiCamera (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    CameraId INT NOT NULL,
+    ImmagineCover NVARCHAR(MAX) NOT NULL,
+    Immagine1 NVARCHAR(MAX),
+    Immagine2 NVARCHAR(MAX),
+    Immagine3 NVARCHAR(MAX),
+    FOREIGN KEY (CameraId) REFERENCES Camera(Id)
+);
+
+CREATE TABLE DettagliSoggiorno (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nome NVARCHAR(50) NOT NULL,
+    Prezzo DECIMAL(18, 2) NOT NULL
+);
+
+CREATE TABLE Prenotazione (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ClienteId INT NOT NULL,
+    CameraId INT NOT NULL,
+    DataPrenotazione DATE NOT NULL,
+    NumeroProgressivo INT NOT NULL,
+    Anno INT NOT NULL,
+    Dal DATE NOT NULL,
+    Al DATE NOT NULL,
+    CaparraConfirmatoria DECIMAL(18, 2),
+    PrezzoTariffa DECIMAL(18, 2),
+    DettagliSoggiornoId INT NOT NULL,
+    ImmagineCover NVARCHAR(MAX),
+    TipologiaCameraId INT NOT NULL,
+    FOREIGN KEY (ClienteId) REFERENCES Cliente(Id),
+    FOREIGN KEY (CameraId) REFERENCES Camera(Id),
+    FOREIGN KEY (DettagliSoggiornoId) REFERENCES DettagliSoggiorno(Id),
+    FOREIGN KEY (TipologiaCameraId) REFERENCES TipologiaCamera(Id)
+);
+
+CREATE TABLE Servizio (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nome NVARCHAR(50) NOT NULL,
+    Prezzo DECIMAL(18, 2) NOT NULL
+);
+
+CREATE TABLE PrenotazioneServizi (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    PrenotazioneId INT NOT NULL,
+    ServizioId INT NOT NULL,
+    Data DATE NOT NULL,
+    Quantita INT NOT NULL,
+    Prezzo DECIMAL(18, 2) NOT NULL,
+    ClienteId INT NOT NULL,
+    FOREIGN KEY (PrenotazioneId) REFERENCES Prenotazione(Id),
+    FOREIGN KEY (ServizioId) REFERENCES Servizio(Id),
+    FOREIGN KEY (ClienteId) REFERENCES Cliente(Id)
+);
+
+CREATE TABLE Ruoli (
+    IdRuolo INT IDENTITY(1,1) PRIMARY KEY,
+    NomeRuolo NVARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Utenti (
+    IdUtente INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) NOT NULL,
+    Password NVARCHAR(50) NOT NULL,
+    UNIQUE (Username)
+);
+
+CREATE TABLE UtentiRuoli (
+    IdUtenti INT NOT NULL,
+    IdRuolo INT NOT NULL,
+    PRIMARY KEY (IdUtenti, IdRuolo),
+    FOREIGN KEY (IdUtenti) REFERENCES Utenti(IdUtente),
+    FOREIGN KEY (IdRuolo) REFERENCES Ruoli(IdRuolo)
+);
+
+-- Popolamento della tabella Cliente
+INSERT INTO Cliente (CodiceFiscale, Cognome, Nome, Citta, Provincia, Email, Telefono, Cellulare) VALUES 
+('RSSMRA85M01H501Z', 'Rossi', 'Mario', 'Roma', 'RM', 'mario.rossi@example.com', '061234567', '3216549870'),
+('VRDLGI85M01H501Y', 'Verdi', 'Luigi', 'Milano', 'MI', 'luigi.verdi@example.com', '028765432', '3216549871'),
+('BNCLRA85M01H501X', 'Bianchi', 'Laura', 'Napoli', 'NA', 'laura.bianchi@example.com', '081234567', '3216549872'),
+('NGRMRA85M01H501W', 'Neri', 'Marco', 'Torino', 'TO', 'marco.neri@example.com', '011234567', '3216549873'),
+('FRNGLA85M01H501V', 'Ferri', 'Giulia', 'Palermo', 'PA', 'giulia.ferri@example.com', '091234567', '3216549874'),
+('SNGFRA85M01H501U', 'Sangalli', 'Franco', 'Bologna', 'BO', 'franco.sangalli@example.com', '051234567', '3216549875'),
+('MRTGLL85M01H501T', 'Martini', 'Gianni', 'Firenze', 'FI', 'gianni.martini@example.com', '055234567', '3216549876'),
+('BLUCST85M01H501S', 'Blu', 'Costanza', 'Genova', 'GE', 'costanza.blu@example.com', '010234567', '3216549877'),
+('GRNRST85M01H501R', 'Granieri', 'Rosa', 'Bari', 'BA', 'rosa.granieri@example.com', '080234567', '3216549878'),
+('BRNZRA85M01H501Q', 'Bronzi', 'Riccardo', 'Catania', 'CT', 'riccardo.bronzi@example.com', '095234567', '3216549879');
+
+-- Popolamento della tabella TipologiaCamera
+INSERT INTO TipologiaCamera (Nome, Immagine) VALUES
+('Singola Standard', 'https://www.hotelsantabarbara.it/sites/barbara2torri.gisnet.it/files/Hotel_Santa_Barbara_camere_SingolaStandard_02.jpg'),
+('Singola Deluxe', 'https://hotellesoleil.it/wp-content/uploads/2021/04/hotel-le-soleil-jesolo-sma22-camera-singola-deluxe-02-1619x800.jpg'),
+('Doppia Standard', 'https://hoteltermestellamaris.com/wp-content/uploads/2021/06/Le-nostre-stanze-2-770x550_stellamaris.jpg'),
+('Doppia Deluxe', 'https://hotelmajestic.com/app/uploads/2018/06/IMG_5494-1-1024x683.jpg'),
+('Suite Junior', 'https://www.hoteleuropeo.com/wp-content/uploads/2020/01/H.Europeo-31-1920x1125.jpg'),
+('Suite Senior', 'https://www.airotel.gr/_res/img/2298/g/134/0/Roommaster_1.jpeg'),
+('Camera Familiare', 'https://www.hotelpalaceonline.it/public/camere/tripla-4.jpg'),
+('Camera Tripla', 'https://www.medjugorjehotelspa.com/wp-content/uploads/2016/12/D8E0160-copy.jpeg'),
+('Camera Quadrupla', 'https://hotelstradivari.com/wp-content/uploads/2019/01/174508441.jpg'),
+('Suite Presidenziale', 'https://dam.melia.com/melia/accounts/f8/4000018/projects/127/assets/0e/41367/68bb6d855489e0381edd85a681079582-1600798512.jpg'),
+('Duplex', 'https://fishhotels-sites.s3.eu-west-3.amazonaws.com/uploads/f08d948c-e22b-44f8-91bb-2c70c5acf572/originals/ur-suite-loft-3.jpg'),
+('Penthouse', 'https://www.litoraneohotelrimini.it/storage/images/litoraneohotelrimini.it/slide_desktop_1601544968_slide-suite-360-04-hotel-litoraneo.jpg'),
+('Suite Attico', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUGNLuSsYG6cPYw4Z9oW7lXDGZAx7rqAnPNw&s');
+
+-- Popolamento della tabella Camera
+INSERT INTO Camera (Descrizione, PostoLetto, TipologiaCameraId, Prezzo) VALUES
+-- Singola Standard
+('Camera Singola con vista mare', 1, 1, 50.00),
+('Camera Singola con vista giardino', 1, 1, 55.00),
+('Camera Singola con balcone', 1, 1, 60.00),
+('Camera Singola deluxe', 1, 1, 65.00),
+-- Singola Deluxe
+('Camera Singola Deluxe con vista mare', 1, 2, 70.00),
+('Camera Singola Deluxe con vista giardino', 1, 2, 75.00),
+('Camera Singola Deluxe con balcone', 1, 2, 80.00),
+('Camera Singola Deluxe con terrazza', 1, 2, 85.00),
+-- Doppia Standard
+('Camera Doppia con vista mare', 2, 3, 90.00),
+('Camera Doppia con vista giardino', 2, 3, 95.00),
+('Camera Doppia con balcone', 2, 3, 100.00),
+('Camera Doppia deluxe', 2, 3, 105.00),
+-- Doppia Deluxe
+('Camera Doppia Deluxe con vista mare', 2, 4, 110.00),
+('Camera Doppia Deluxe con vista giardino', 2, 4, 115.00),
+('Camera Doppia Deluxe con balcone', 2, 4, 120.00),
+('Camera Doppia Deluxe con terrazza', 2, 4, 125.00),
+-- Suite Junior
+('Suite Junior con vista mare', 3, 5, 130.00),
+('Suite Junior con vista giardino', 3, 5, 135.00),
+('Suite Junior con balcone', 3, 5, 140.00),
+('Suite Junior deluxe', 3, 5, 145.00),
+-- Suite Senior
+('Suite Senior con vista mare', 4, 6, 150.00),
+('Suite Senior con vista giardino', 4, 6, 155.00),
+('Suite Senior con balcone', 4, 6, 160.00),
+('Suite Senior deluxe', 4, 6, 165.00),
+-- Camera Familiare
+('Camera Familiare con vista mare', 4, 7, 170.00),
+('Camera Familiare con vista giardino', 4, 7, 175.00),
+('Camera Familiare con balcone', 4, 7, 180.00),
+('Camera Familiare deluxe', 4, 7, 185.00),
+-- Camera Tripla
+('Camera Tripla con vista mare', 3, 8, 190.00),
+('Camera Tripla con vista giardino', 3, 8, 195.00),
+('Camera Tripla con balcone', 3, 8, 200.00),
+('Camera Tripla deluxe', 3, 8, 205.00),
+-- Camera Quadrupla
+('Camera Quadrupla con vista mare', 4, 9, 210.00),
+('Camera Quadrupla con vista giardino', 4, 9, 215.00),
+('Camera Quadrupla con balcone', 4, 9, 220.00),
+('Camera Quadrupla deluxe', 4, 9, 225.00),
+-- Suite Presidenziale
+('Suite Presidenziale con vista mare', 5, 10, 300.00),
+('Suite Presidenziale con vista giardino', 5, 10, 305.00),
+('Suite Presidenziale con balcone', 5, 10, 310.00),
+('Suite Presidenziale deluxe', 5, 10, 315.00);
+
+-- Popolamento della tabella ImmaginiCamera
+INSERT INTO ImmaginiCamera (CameraId, ImmagineCover, Immagine1, Immagine2, Immagine3) VALUES
+(1, 'https://cdn.blastness.info/media/949/top/thumbs/full/singola-vista-mare.jpg', 'https://www.hotelboncardo.it/wp-content/uploads/2023/02/01_singola_balcone_vm.webp', 'https://media-cdn.tripadvisor.com/media/photo-s/0e/f1/f6/42/camera-singola-con-balcone.jpg', NULL),
+(2, 'https://media-cdn.tripadvisor.com/media/photo-s/11/ce/9c/a0/camera-singola-con-bagno.jpg', 'https://img.freepik.com/premium-photo/bedroom-with-view-garden-large-window-with-view-garden_865967-185292.jpg?size=626&ext=jpg', 'https://images.trvl-media.com/lodging/19000000/18770000/18769600/18769504/d753dd53.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill', NULL),
+(3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN2RB_HnZVUzLJOmtIcKUPN7x513b0NiCH1Q&s', 'https://www.hotelboncardo.it/wp-content/uploads/2023/02/01_singola_balcone_vm.webp', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2NFhHWdhKJEC66vPtDMd5H7lB6fKBdUSRoA&s', NULL),
+(4, 'https://hotellesoleil.it/wp-content/uploads/2021/04/hotel-le-soleil-jesolo-sma22-camera-singola-deluxe-02-1619x800.jpg', 'https://www.bebelduche.it/ridimensiona.html/cms/1920/1080/100__/cms/custom/files/100069/ct50012_id178245_t1/_MG_9166_Principale.jpg', NULL, NULL),
+(5, 'https://cdn.blastness.info/media/1189/top/thumbs/full/top-superior7-GS102958.jpg', 'https://domusmaris.it/wp-content/uploads/2016/02/Doppia-tripla-hotel-sciacca-sicilia-19.jpg', 'https://res.cloudinary.com/ciaobnb/images/w_1280,h_720,c_fill,q_auto,f_auto/02f55c163e51e6edbb37fd7eb830b1a9/photo.jpg', NULL),
+(6, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVGweokEklAlECcr7XpwSNz3OmkhIpKg-lPA&s', 'https://www.skalahotel.gr/wp-content/uploads/2020/02/skala-hotel-patmos-Double-Room-with-balcony-Garden-View-1-300x300.jpg', 'https://www.skalahotel.gr/wp-content/uploads/2020/02/skala-hotel-patmos-Double-Room-with-balcony-Garden-View-7.jpg', NULL),
+(7, 'https://www.blitzburg.it/typo3temp/pics/54519390a9.jpg', 'https://www.teutschhaus.it/pics/0000001008-1700x945-c-x50-y50.jpg', 'https://www.blitzburg.it/typo3temp/pics/bd851ba3b7.jpg', NULL),
+(8, 'https://www.hotelnicebeaurivage.com/wp-content/uploads/2021/11/deluxe-terrasse328mp-web.jpg', 'https://www.hotelnicebeaurivage.com/wp-content/uploads/2021/11/deluxe-terrasse337mp-web.jpg', 'https://www.hotelnicebeaurivage.com/wp-content/uploads/2021/11/deluxe-terrasse349mp-web.jpg', NULL),
+(9, 'https://medusahotel.it/wp-content/uploads/DSCF4859-300x225.jpg', 'https://medusahotel.it/wp-content/uploads/DSCF4869-300x225.jpg', 'https://medusahotel.it/wp-content/uploads/2020/01/DSCF8667-480x360.jpg', NULL),
+(10, 'https://www.hotelcasabianca.com/camere-4-stelle-jesolo/rid/camera-superior-matrimoniale-doppia-con-letti-singoli-con-vista-giardino-1.jpg', 'https://www.villaguarracinoamalfi.it/wp-content/uploads/2018/04/superior-01-1920x1024.jpg', 'https://www.villaguarracinoamalfi.it/wp-content/uploads/2018/04/suite-02-1920x1024.jpg', NULL),
+(11, 'https://www.mendelblick.com/cache/img-fotos-seppi-202-zimmer-622-920.jpg', 'https://www.mendelblick.com/cache/img-fotos-seppi-203-zimmer-615-920.jpg', 'https://www.mendelblick.com/cache/img-fotos-seppi-303-zimmer-023-920.jpg', NULL),
+(12, 'https://admin.ehotelier.it/bnlocalproxy.php?path=thumbnails/max/1920x1080/roomtype/ac5608361cffb1fba3be2ee7c7e88b26', 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/208413042.jpg?k=c20fe248808acfb2decdef8415324cc945eb5871914271c71b83876a614686f8&o=&hp=1', 'https://admin.ehotelier.it/bnlocalproxy.php?path=thumbnails/max/1920x1080/roomtype/ac5608361cffb1fba3be2ee7c7e88b26', NULL),
+(13, 'https://www.ippocampos.gr/sites/ippocampos/files/items/39.jpg', 'https://example.com/singola1.jpg', 'https://example.com/singola2.jpg', NULL),
+(14, 'https://example.com/singola_cover4.jpg', 'https://www.ippocampos.gr/sites/ippocampos/files/photos/202.jpg', 'https://www.ippocampos.gr/sites/ippocampos/files/photos/203.jpg', NULL),
+(15, 'https://res.cloudinary.com/amenitiz/image/upload/w_500,dpr_auto,f_auto,q_auto:good/v1701772630/c4a6iy85dfm6nuecqwxr.jpg', 'https://media-cdn.tripadvisor.com/media/photo-s/17/8e/ed/cf/b-b-vista-lago.jpg', 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/b9/c6/fe/photo1jpg.jpg?w=1200&h=-1&s=1', NULL),
+(16, 'https://www.hotel-patrizia.it/fileadmin/_processed_/5/1/csm_2_2021_2c2fd95880.jpg', 'https://www.hotel-patrizia.it/fileadmin/_processed_/f/b/csm_Zimmer_3_d73b19dc21.jpg', 'https://www.hotel-patrizia.it/fileadmin/_processed_/4/7/csm_2.1_2021_585419d23c.jpg', NULL),
+(17, 'https://www.borgodeglidei.it/wp-content/uploads/2017/04/suite-2.jpg', 'https://www.borgodeglidei.it/wp-content/uploads/2017/04/suite-6-1024x683.jpg', 'https://www.borgodeglidei.it/wp-content/uploads/2017/04/suite-5-1024x683.jpg', NULL),
+(18, 'https://www.hotel-ladolcevita.com/wp-content/uploads/2018/01/Junior-Suite-2.jpg', 'https://www.hotel-ladolcevita.com/wp-content/uploads/2018/01/junior-suite-1.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWF9jlEftZIlAMk8P7NaQ-tHJkfpHjKB0H95SIULyJ_ZI4mK_GICxT_owgXZNFm2Tt0hA&usqp=CAU', NULL),
+(19, 'https://stopinparadise.com/wp-content/uploads/2020/01/Sheraton-premium-junior-suite-870x555.jpg', 'https://stopinparadise.com/wp-content/uploads/2019/12/22-Sheraton-Deluxe-Room_s-Terrace-Sea-View-scaled-870x555.jpg', 'https://stopinparadise.com/wp-content/uploads/2015/02/she1541gr-135041-Junior-Suite-Bedroom-800x600.jpg', NULL),
+(20, 'https://example.com/doppia_cover2.jpg', 'https://example.com/doppia1.jpg', 'https://example.com/doppia2.jpg', NULL),
+(21, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfeHU6cpXka6hlz00N586HnIleYo-Yqv_Yzw&s', 'https://www.covodeisaraceni.it/wp-content/uploads/2014/03/1-room-jsbal05-hotel-covo-dei-saraceni-positano.jpg', 'https://www.covodeisaraceni.it/wp-content/uploads/2014/03/2-room-jsbal01-hotel-covo-dei-saraceni-positano.jpg', NULL),
+(22, 'https://www.agriturladolcemela.it/_wordpress/wp-content/uploads/2018/09/Sweet-Dream-Junior-Suite-Deluxe-La-Dolce-Mela.jpg', 'https://www.agriturladolcemela.it/_wordpress/wp-content/uploads/2018/09/Sweet-Dream-Junior-Suite-Deluxe-La-Dolce-Mela1-1500x1004.jpg', 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/149281533.jpg?k=ce278970fc36fff2ae6ea66bc2a7b4be6f8635249b97ddf54dc4d4fdfe888459&o=&hp=1', NULL),
+(23, 'https://a0.muscache.com/im/pictures/miso/Hosting-1008528970504358599/original/bd80036a-dadc-493c-aa17-dc43642f8dfe.jpeg?im_w=720', 'https://a0.muscache.com/im/pictures/miso/Hosting-1008528970504358599/original/26dcd216-aef4-4d06-a9e9-33e02018fb8f.jpeg?im_w=720', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu8YRJrK4riXVVScbdlM2GM9NBrgV-gvvVz-SaoJIYpLnbiVFANNTWgUOfVXYiY0hig-g&usqp=CAU', NULL),
+(24, 'https://image-tc.galaxy.tf/wijpeg-5vy5r4czj1qv8rt6ntzuwzpfo/falkensteiner-hotel-carinzia-junior-suite-bergsicht-1920x1080.jpg', 'https://image-tc.galaxy.tf/wijpeg-971iky0032dvtyrnce0g0uw4e/falkensteiner-hotel-spa-carinzia-zimmer7-1920x1080_square.jpg?rotate=0&crop=640%2C0%2C1080%2C1080&width=400', 'https://image-tc.galaxy.tf/wijpeg-de10dxg6xlqj6bpxug96i6hxp/falkensteiner-hotel-spa-carinzia-senior-suite-3-1920x1080.jpg?width=1920', NULL),
+(25, 'https://www.laresidenceabano.it/wp-content/uploads/2023/07/1-Senior-Suite-Principale.jpg', 'https://www.laresidenceabano.it/wp-content/uploads/2023/07/3-Senior-Suite.jpg', 'https://www.laresidenceabano.it/wp-content/uploads/2023/07/4-Senior-Suite.jpg', NULL),
+(26, 'https://www.artnesthotel.com/storage/rooms/superior-double-bed/superior-double-2-resize.jpg', 'https://nhatrang.grandtouranehotel.com/storage/junior-1/junior-suite-02.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbS5-6ViHSMXF4AuUDlHPWEYjhmojEV0qJD4PL5k8K6JTdERgoO431mGd2dQod-ppuvdI&usqp=CAU', NULL),
+(27, 'https://www.torredeiborboni.com/cms-admin/materiale/add_gallerie/img-20-2/img.jpg', 'https://www.torredeiborboni.com/cms-admin/materiale/add_gallerie/img-65-4/img.jpg', 'https://www.torredeiborboni.com/cms-admin/materiale/add_gallerie/img-66-4/img.jpg', NULL),
+(28, 'https://www.skalahotel.gr/wp-content/uploads/2021/01/Skala-Hotel-Patmos-Accommodation-Family-Room-and-Bathroom-1.jpg', 'https://www.skalahotel.gr/wp-content/uploads/2021/01/Skala-Hotel-Patmos-Accommodation-Family-Room-and-Bathroom-2.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbOJTCWA9dIarnBJdqCoj9Ycq0PXQZPjOyMFa_hTWExtWtjCyQmMz2UidBfYziYZFQoHc&usqp=CAU', NULL),
+(29, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIxG9QPnmv7xjWqs0wNzS-dcFA9ZYVXRRieA&s', 'https://cst-media2.viomassl.com/3940/767785/1024x768s', 'https://www.ostelloalpino.com/media/imagecache/allegati/b4c6b510e0/doppia-standard-8.jpg.jpg', NULL),
+(30, 'https://cst-media2.viomassl.com/3940/767789/640x0s', 'https://cst-media2.viomassl.com/3940/767785/1024x768s', 'https://cst-media2.viomassl.com/3940/767789/1024x768s', NULL),
+(31, 'https://www.acquanovella.it/resources/images/dbd138e9-98d8-4f8f-bf36-56405d7c9edc/it/T/camera-tripla-vista-mare.jpg', 'https://www.acquanovella.it/resources/images/794735da-b3e9-47d2-a097-c4adadb157a4/it/T/camera-family-fronte-mare.jpeg', 'https://www.hotelmariotti.it/assets/img/slider/room/tripla-1.jpg', NULL),
+(32, 'https://www.hotelalcigno.it/contenuti/immagini/deluxe-tripla_o.jpg', 'https://www.hotelsempione.it/sites/www.hotelsempione.it/files/styles/banner_promozione_900x500_/public/images/HSM_Camere_Tripla_Deluxe_01.jpg?itok=WwVkzdpT', 'https://hotel-sempione-milan.nochi.com.ua/data/Photos/Big/10157/1015783/1015783951/Hotel-Sempione-Milan-Exterior.JPEG', NULL),
+(33, 'https://www.tzantehotel.com/wp-content/uploads/2022/03/Superior-Triple-1-7-1920x650.jpgg', 'https://www.tzantehotel.com/wp-content/uploads/2022/03/Superior-Double-Balcony-10-1920x650.jpg', 'https://www.tzantehotel.com/wp-content/uploads/2022/03/Superior-Triple-1-3.jpg', NULL),
+(34, 'https://park.amadihotels.com/upload/heading/deluxe-driepersoonskamer-1500x1000.jpg', 'https://park.amadihotels.com/upload/heading/deluxe-driepersoonskamer-1500x750.jpg', 'https://park.amadihotels.com/upload/heading/deluxe-tweepersoonskamer-1500x750_2.jpg', NULL),
+(35, 'https://r.profitroom.pl/esthotel/images/rooms/thumbs/1024x768/201705051037230.est_hotel_camera_8.jpg', 'https://r.profitroom.pl/esthotel/images/rooms/thumbs/1024x768/201704180651180.est_hotel_camera_9.jpg', 'https://www.hoteldelsolesantamarinella.it/wp-content/uploads/2020/11/hotel-del-sole-santa-marinella-camera-quadrupla-standard.jpeg', NULL),
+(36, 'https://media-cdn.tripadvisor.com/media/photo-s/0f/27/04/0d/camera-quadrupla-con.jpg', 'https://www.mediterraneoriccione.com/storage/images/mediterraneoriccione.com/camere_desktop_1687530332_camere-standard-con-balcone-fronte-mare5hotel-mediterraneo-riccione.jpg', 'https://www.mediterraneopalace.it/wp-content/uploads/2021/06/Camera-23.jpg', NULL),
+(37, 'https://media.z-suite.it/sportingportorotondo.net/public/crop/1-Suite-pres-2000x1140.jpg?v=1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7jcDRzL-iq-Emt6zACo20PCq8kXe7VWoS7-zzFbTXW3ONx4lleQ9AfT1QVnk1MVcjd88&usqp=CAU', 'https://media.z-suite.it/sportingportorotondo.net/public/Camere%20def/Suite%20presidenziale/carosello_5-Suite-pres.jpg', NULL),
+(38, 'https://www.dolomiticlass.it/storage/editorials/871/conversions/Suite_Penthouse_Quellenhof_Resort_Suite_chalet_di_lusso_in_Val_Passiria_Merano_01-tablet.jpg', 'https://www.dolomiticlass.it/storage/editorials/872/conversions/Suite_Penthouse_Quellenhof_Resort_Suite_chalet_di_lusso_in_Val_Passiria_Merano_02-tablet.jpg', 'https://www.dolomiticlass.it/storage/editorials/868/conversions/Bella_Vista_Chalet_Quellenhof_Resort_Suite_chalet_di_lusso_in_Val_Passiria_Merano_02-tablet.jpg', NULL),
+(39, 'https://e9c3aa9d33ed68ad5563-53656e37320f5eb0ad9175f5f21a9949.ssl.cf1.rackcdn.com/u/zemi-beach/new-photography/three-bed-presidential_01.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcpGHqLttxNafu6WJUU4aop5H8rQoOe84k4LVIHiecrir32lybxF7MQodLW6H_hvX-BF4&usqp=CAU', 'https://e9c3aa9d33ed68ad5563-53656e37320f5eb0ad9175f5f21a9949.ssl.cf1.rackcdn.com/u/zemi-beach/new-photography/two-bedroom-premium_04.jpg', NULL),
+(40, 'https://admin.ehotelier.it/bnlocalproxy.php?path=thumbnails/crop/1920x1080/roomtype/54a1043890308a3a258f54e5dfb05438?center=1750,1091', 'https://www.ikador.com/wp-content/uploads/2022/12/PHO_2823web-1.jpg', 'https://www.ikador.com/wp-content/uploads/2022/12/1.jpeg', NULL);
+
+-- Popolamento della tabella DettagliSoggiorno
+INSERT INTO DettagliSoggiorno (Nome, Prezzo) VALUES
+('Pernottamento e colazione', 20.00),
+('Solo pernottamento', 10.00),
+('Mezza pensione', 30.00),
+('Pensione completa', 50.00);t/uploads/2022/12/1.jpeg', NULL);
+--
+
+INSERT INTO Prenotazione (ClienteId, CameraId, DataPrenotazione, NumeroProgressivo, Anno, Dal, Al, CaparraConfirmatoria, PrezzoTariffa, DettagliSoggiornoId, ImmagineCover, TipologiaCameraId) VALUES
+(1, 1, '2023-07-01', 1, 2023, '2023-07-10', '2023-07-20', 100.00, 200.00, 1, 'https://cdn.blastness.info/media/949/top/thumbs/full/singola-vista-mare.jpg', 1),
+(2, 5, '2023-08-01', 2, 2023, '2023-08-15', '2023-08-25', 150.00, 300.00, 2, 'https://cdn.blastness.info/media/1189/top/thumbs/full/top-superior7-GS102958.jpg', 2),
+(3, 9, '2023-09-01', 3, 2023, '2023-09-10', '2023-09-20', 200.00, 400.00, 3, 'https://medusahotel.it/wp-content/uploads/DSCF4859-300x225.jpg', 3),
+(4, 13, '2023-10-01', 4, 2023, '2023-10-05', '2023-10-15', 300.00, 500.00, 4, 'https://example.com/doppia_deluxe_cover1.jpg', 4),
+(5, 17, '2023-11-01', 5, 2023, '2023-11-10', '2023-11-20', 400.00, 600.00, 1, 'https://www.borgodeglidei.it/wp-content/uploads/2017/04/suite-2.jpg', 5),
+(6, 21, '2023-12-01', 6, 2023, '2023-12-10', '2023-12-20', 500.00, 700.00, 2, 'https://example.com/suite_senior_cover1.jpg', 6),-- Continuazione della tabella Prenotazione
+(7, 25, '2024-01-01', 7, 2024, '2024-01-10', '2024-01-20', 600.00, 800.00, 3, 'https://www.laresidenceabano.it/wp-content/uploads/2023/07/1-Senior-Suite-Principale.jpg', 7),
+(8, 29, '2024-02-01', 8, 2024, '2024-02-10', '2024-02-20', 700.00, 900.00, 4, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIxG9QPnmv7xjWqs0wNzS-dcFA9ZYVXRRieA&s', 8),
+(9, 33, '2024-03-01', 9, 2024, '2024-03-10', '2024-03-20', 800.00, 1000.00, 1, 'https://www.tzantehotel.com/wp-content/uploads/2022/03/Superior-Triple-1-7-1920x650.jpgg', 9),
+(10, 37, '2024-04-01', 10, 2024, '2024-04-10', '2024-04-20', 900.00, 1100.00, 2, 'https://media.z-suite.it/sportingportorotondo.net/public/crop/1-Suite-pres-2000x1140.jpg?v=1', 10);
+
+
+INSERT INTO Servizio (Nome, Prezzo) VALUES
+('Colazione in camera', 5.00),
+('Bevande dal mini bar', 3.00),
+('Internet', 10.00),
+('Letto aggiuntivo', 20.00),
+('Culla', 15.00),
+('Pulizia giornaliera', 10.00),
+('Servizio lavanderia', 12.00),
+('Navetta aeroporto', 30.00),
+('Parcheggio', 8.00),
+('Accesso alla spa', 25.00);
+
+-- Popolamento della tabella PrenotazioneServizi
+INSERT INTO PrenotazioneServizi (PrenotazioneId, ServizioId, ClienteId, Data, Quantita, Prezzo) VALUES
+(1, 1, 1, '2023-07-11', 2, 10.00),
+(1, 2, 1, '2023-07-12', 3, 9.00),
+(2, 3, 2, '2023-08-16', 1, 10.00),
+(2, 4, 2, '2023-08-17', 1, 20.00),
+(3, 5, 3, '2023-09-11', 1, 15.00),
+(3, 6, 3, '2023-09-12', 1, 10.00),
+(4, 7, 4, '2023-10-06', 1, 12.00),
+(4, 8, 4, '2023-10-07', 1, 30.00),
+(4, 9, 4, '2023-10-08', 1, 8.00),
+(4, 10, 4, '2023-10-09', 1, 25.00);
+
+-- Popolamento della tabella Ruoli
+INSERT INTO Ruoli (NomeRuolo) VALUES
+('Admin'),
+('Receptionist'),
+('Concierge');
+
+-- Popolamento della tabella Utenti
+INSERT INTO Utenti (Username, Password) VALUES
+('mrossi', 'password123'),
+('lverdi', 'password123'),
+('lbianchi', 'password123'),
+('mneri', 'password123'),
+('gferri', 'password123'),
+('fsangalli', 'password123'),
+('gmartini', 'password123'),
+('cblu', 'password123'),
+('rgranieri', 'password123'),
+('rbronzi', 'password123');
+
+-- Popolamento della tabella UtentiRuoli
+INSERT INTO UtentiRuoli (IdUtenti, IdRuolo) VALUES
+(1, 1),
+(2, 2),
+(3, 2),
+(4, 2),
+(5, 3),
+(6, 3),
+(7, 3),
+(8, 3),
+(9, 3),
+(10, 3);

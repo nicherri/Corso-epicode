@@ -1,0 +1,77 @@
+﻿@model Hotel.Models.Prenotazione
+
+@{
+    ViewData["Title"] = "Dettagli Prenotazione";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>Prenotazione</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Cliente</dt>
+        <dd>@Model.Cliente.Nome @Model.Cliente.Cognome</dd>
+
+        <dt>Tipologia Camera</dt>
+        <dd>@Model.TipologiaCamera.Nome</dd>
+
+        <dt>Descrizione Camera</dt>
+        <dd>@Model.Camera.Descrizione</dd>
+
+        <dt>Numero Camera</dt>
+        <dd>@Model.Camera.Id</dd>
+
+        <dt>Posti Letto</dt>
+        <dd>@Model.Camera.PostoLetto</dd>
+
+        <dt>Data Prenotazione</dt>
+        <dd>@Model.DataPrenotazione.ToShortDateString()</dd>
+
+        <dt>Numero Progressivo</dt>
+        <dd>@Model.NumeroProgressivo</dd>
+
+        <dt>Anno</dt>
+        <dd>@Model.Anno</dd>
+
+        <dt>Periodo</dt>
+        <dd>@Model.Dal.ToShortDateString() - @Model.Al.ToShortDateString()</dd>
+
+        <dt>Caparra Confirmatoria</dt>
+        <dd>@Model.CaparraConfirmatoria €</dd>
+
+        <dt>Prezzo Tariffa</dt>
+        <dd>@Model.PrezzoTariffa €</dd>
+
+        <dt>Dettagli Soggiorno</dt>
+        <dd>@Model.DettagliSoggiorno.Nome</dd>
+
+        <dt>Immagine Cover</dt>
+        <dd>
+            <img src="@Model.ImmagineCover" alt="Cover" style="width: 100px; height: 100px;" />
+        </dd>
+
+        <dt>Servizi Aggiuntivi</dt>
+        <dd>
+            @if (Model.PrenotazioneServizi != null && Model.PrenotazioneServizi.Any())
+            {
+                <ul>
+                    @foreach (var servizio in Model.PrenotazioneServizi)
+                    {
+                        <li>@servizio.Servizio.Nome - Quantità: @servizio.Quantita - Prezzo: @servizio.Prezzo €</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>Nessun servizio aggiuntivo richiesto.</p>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Modifica</a> |
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Elimina</a> |
+    <a asp-action="Index" class="btn btn-secondary">Torna alla lista</a> |
+    <button onclick="window.print()" class="btn btn-info">Stampa</button>
+</div>

@@ -1,0 +1,31 @@
+﻿@model Hotel.Models.Prenotazione
+
+<h2>Elimina Prenotazione</h2>
+
+<h3>Sei sicuro di voler eliminare questa prenotazione?</h3>
+<div>
+    <h4>Prenotazione</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Cliente</dt>
+        <dd>@Model.Cliente.Nome @Model.Cliente.Cognome</dd>
+        <dt>Camera</dt>
+        <dd>@Model.Camera.Id</dd>
+        <dt>Data Prenotazione</dt>
+        <dd>@Model.DataPrenotazione.ToShortDateString()</dd>
+        <dt>Periodo</dt>
+        <dd>@Model.Dal.ToShortDateString() - @Model.Al.ToShortDateString()</dd>
+        <dt>Caparra</dt>
+        <dd>@Model.CaparraConfirmatoria</dd>
+        <dt>Tariffa</dt>
+        <dd>@Model.PrezzoTariffa</dd>
+        <dt>Dettagli Soggiorno</dt>
+        <dd>@Model.DettagliSoggiorno.Nome</dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Elimina" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Annulla</a>
+    </form>
+</div>
