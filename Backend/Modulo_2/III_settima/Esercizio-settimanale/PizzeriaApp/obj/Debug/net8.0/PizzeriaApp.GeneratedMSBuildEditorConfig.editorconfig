@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\nicol\Desktop\Corso epicode\Esercizii\Corso-epicode\Backend\Modulo_2\III_settima\Esercizio-settimanale\PizzeriaApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/III_settima/Esercizio-settimanale/PizzeriaApp/Areas/Admin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nicol/Desktop/Corso epicode/Esercizii/Corso-epicode/Backend/Modulo_2/III_settima/Esercizio-settimanale/PizzeriaApp/Areas/User/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

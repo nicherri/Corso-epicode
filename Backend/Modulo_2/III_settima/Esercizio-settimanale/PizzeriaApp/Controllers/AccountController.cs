@@ -40,6 +40,7 @@ namespace PizzeriaApp.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -47,7 +48,6 @@ namespace PizzeriaApp.Controllers
             {
                 if (await _accountService.LoginAsync(model))
                 {
-                    // Rileggi il ruolo dell'utente per effettuare la redirezione corretta
                     var user = await _accountService.GetUserAsync(model.Email);
 
                     if (user.UtentiRuoli.Any(ur => ur.Ruolo.Nome == "Admin"))
@@ -65,7 +65,6 @@ namespace PizzeriaApp.Controllers
 
             return View(model);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Logout()

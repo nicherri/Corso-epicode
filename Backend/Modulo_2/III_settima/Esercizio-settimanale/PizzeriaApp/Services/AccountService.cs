@@ -48,10 +48,38 @@ namespace Services
             return true;
         }
 
+        public async Task<bool> RegisterAdminAsync(RegisterViewModel model)
+        {
+            if (model == null)
+                return false;
+
+            var user = new Utente { Nome = model.Nome, Email = model.Email, Password = model.Password };
+            _context.Utenti.Add(user);
+            await _context.SaveChangesAsync();
+
+            var role = await _context.Ruoli.FirstOrDefaultAsync(r => r.Nome == "Admin");
+            if (role == null)
+            {
+                role = new Ruolo { Nome = "Admin" };
+                _context.Ruoli.Add(role);
+                await _context.SaveChangesAsync();
+            }
+
+            _context.UtentiRuoli.Add(new UtenteRuolo { UtenteId = user.Id, RuoloId = role.Id });
+            await _context.SaveChangesAsync();
+
+            _httpContextAccessor.HttpContext.Session.SetString("UserId", user.Id.ToString());
+            _httpContextAccessor.HttpContext.Session.SetString("UserName", user.Nome);
+
+            return true;
+        }
+
         public async Task<bool> LoginAsync(LoginViewModel model)
         {
             if (model == null)
                 return false;
+
+            _logger.LogInformation("Login attempt for email: {Email}", model.Email);
 
             var user = await _context.Utenti
                 .Include(u => u.UtentiRuoli)
@@ -82,17 +110,25 @@ namespace Services
 
                 if (user.UtentiRuoli.Any(ur => ur.Ruolo.Nome == "Admin"))
                 {
-                    _logger.LogInformation("User is an admin.");
+                    _logger.LogInformation("User is an admin. Redirecting to Admin area.");
                 }
                 else
                 {
-                    _logger.LogInformation("User is a regular user.");
+                    _logger.LogInformation("User is a regular user. Redirecting to User area.");
                 }
 
                 return true;
             }
 
+            _logger.LogWarning("Invalid login attempt for email: {Email}", model.Email);
             return false;
+        }
+
+        public async Task LogoutAsync()
+        {
+            await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            _httpContextAccessor.HttpContext.Session.Remove("UserId");
+            _httpContextAccessor.HttpContext.Session.Remove("UserName");
         }
 
         public async Task<Utente> GetUserAsync(string email)
@@ -101,14 +137,6 @@ namespace Services
                 .Include(u => u.UtentiRuoli)
                 .ThenInclude(ur => ur.Ruolo)
                 .FirstOrDefaultAsync(u => u.Email == email);
-        }
-
-
-        public async Task LogoutAsync()
-        {
-            await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            _httpContextAccessor.HttpContext.Session.Remove("UserId");
-            _httpContextAccessor.HttpContext.Session.Remove("UserName");
         }
     }
 }
