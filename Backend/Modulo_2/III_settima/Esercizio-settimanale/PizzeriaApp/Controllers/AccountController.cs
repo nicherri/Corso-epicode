@@ -1,18 +1,18 @@
-﻿using Data;
+﻿using Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Models;
 using ViewModels;
 
 namespace PizzeriaApp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IAccountService _accountService;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(AppDbContext context)
+        public AccountController(IAccountService accountService, ILogger<AccountController> logger)
         {
-            _context = context;
+            _accountService = accountService;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -26,26 +26,10 @@ namespace PizzeriaApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new Utente { Nome = model.Nome, Email = model.Email, Password = model.Password };
-                _context.Utenti.Add(user);
-                await _context.SaveChangesAsync();
-
-                var role = await _context.Ruoli.FirstOrDefaultAsync(r => r.Nome == "User");
-                if (role == null)
+                if (await _accountService.RegisterAsync(model))
                 {
-                    role = new Ruolo { Nome = "User" };
-                    _context.Ruoli.Add(role);
-                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Home", new { area = "User" });
                 }
-
-                _context.UtentiRuoli.Add(new UtenteRuolo { UtenteId = user.Id, RuoloId = role.Id });
-                await _context.SaveChangesAsync();
-
-                // Logica per la sessione utente (semplificata)
-                HttpContext.Session.SetString("UserId", user.Id.ToString());
-                HttpContext.Session.SetString("UserName", user.Nome);
-
-                return RedirectToAction("Index", "Home");
             }
 
             return View(model);
@@ -56,23 +40,24 @@ namespace PizzeriaApp.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = await _context.Utenti
-                    .Where(u => u.Email == model.Email && u.Password == model.Password)
-                    .FirstOrDefaultAsync();
-
-                if (user != null)
+                if (await _accountService.LoginAsync(model))
                 {
-                    // Logica per la sessione utente (semplificata)
-                    HttpContext.Session.SetString("UserId", user.Id.ToString());
-                    HttpContext.Session.SetString("UserName", user.Nome);
+                    // Rileggi il ruolo dell'utente per effettuare la redirezione corretta
+                    var user = await _accountService.GetUserAsync(model.Email);
 
-                    return RedirectToAction("Index", "Home");
+                    if (user.UtentiRuoli.Any(ur => ur.Ruolo.Nome == "Admin"))
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "Admin" });
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "User" });
+                    }
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
@@ -81,12 +66,11 @@ namespace PizzeriaApp.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Remove("UserId");
-            HttpContext.Session.Remove("UserName");
 
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _accountService.LogoutAsync();
             return RedirectToAction("Index", "Home");
         }
     }
