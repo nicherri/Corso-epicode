@@ -9,7 +9,7 @@ namespace Interfaces
         Task<bool> LoginAsync(LoginViewModel model);
         Task LogoutAsync();
         Task<Utente> GetUserAsync(string email);
-        Task<bool> RegisterAdminAsync(RegisterViewModel model); // Aggiungi questo metodo
-
+        Task<bool> RegisterAdminAsync(RegisterViewModel model);
+        Task<Utente> AuthenticateAsync(string email, string password); // Aggiungi questa riga
     }
 }
